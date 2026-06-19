@@ -9,10 +9,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.0.0",
-    "@astrojs/sitemap": "^3.0.0"
+    "@astrojs/sitemap": "^3.0.0",
+    "astro": "^5.0.0"
   },
   "devDependencies": {
+    "playwright": "^1.61.0",
     "turndown": "^7.1.0"
   }
 }
