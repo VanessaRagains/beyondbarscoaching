@@ -220,4 +220,17 @@ import LogoImage from '../assets/logo.png';
       }
     });
   });
+
+  // Close menu and dropdowns when any nav link is clicked (covers anchor links and mobile)
+  document.querySelectorAll('.nav-menu a').forEach((link) => {
+    link.addEventListener('click', () => {
+      menu.classList.remove('open');
+      toggle?.setAttribute('aria-expanded', 'false');
+      document.querySelectorAll('.nav-dropdown.open').forEach((el) => {
+        el.classList.remove('open');
+        const btn = el.querySelector('.nav-dropdown-toggle') as HTMLElement;
+        btn?.setAttribute('aria-expanded', 'false');
+      });
+    });
+  });
 </script>
