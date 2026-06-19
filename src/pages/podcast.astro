@@ -20,20 +20,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   <section class="section">
     <div class="container">
-      <!-- TODO: Replace with Podbean embed snippet from Vanessa.
-           Go to Podbean → your show → Share → Embed to get the iframe code. -->
-      <div class="embed-placeholder">
-        <div class="embed-icon">🎙️</div>
-        <h2>Podcast player coming soon</h2>
-        <p>
-          We're embedding the Podbean player here once we have the embed snippet.
-          In the meantime, you can listen directly on Podbean.
-        </p>
-        <!-- Once Vanessa provides the Podbean URL, replace this placeholder with:
-          <div class="embed-frame">
-            <iframe src="PODBEAN_EMBED_URL" ...></iframe>
-          </div>
-        -->
+      <div class="embed-frame">
+        <iframe
+          height="550px"
+          src="https://www.podbean.com/player-v2/?i=zgik7-14dd971-pbblog-playlist&share=1&download=1&rtl=0&fonts=Arial&skin=1&font-color=auto&logo_link=episode_page&order=episodic&limit=10&filter=all&ss=a713390a017602015775e868a2cf26b0&btn-skin=7&size=315"
+        >
+        </iframe>
       </div>
     </div>
   </section>
