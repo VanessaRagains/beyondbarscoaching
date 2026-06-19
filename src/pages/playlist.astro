@@ -15,21 +15,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <section class="section">
+  <section class="section playlist">
     <div class="container">
-      <!-- TODO: Replace with Apple Music embed once Vanessa provides the playlist URL.
-           Get the embed from music.apple.com → share → embed. -->
-      <div class="embed-placeholder">
-        <div class="embed-icon">🎧</div>
-        <h2>Playlist embed coming soon</h2>
-        <p>
-          We'll embed the Apple Music playlist here once we have the URL from Vanessa.
-          You can also download the
-          <a href="/downloads/sober-rebel-playlist-reflection.pdf" download>
-            Sober Rebel Playlist Reflection Exercise (PDF)
-          </a>.
-        </p>
-      </div>
+      <iframe
+        allow="autoplay *; encrypted-media *;"
+        frameborder="0"
+        height="450"
+        style="width:100%;max-width:660px;overflow:hidden;background:transparent;"
+        sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
+        src="https://embed.music.apple.com/us/playlist/sober-rebel/pl.u-bYG7ty5zxaX"
+      ></iframe>
     </div>
   </section>
 
@@ -37,16 +32,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <style>
 .page-sub { color: var(--color-text-light); font-size: var(--text-lg); margin-top: var(--space-3); }
-.embed-placeholder {
-  text-align: center;
-  padding: var(--space-16);
-  background: var(--color-bg-soft);
-  border-radius: var(--radius-xl);
-  border: 2px dashed var(--color-brand-light);
-  max-width: 600px;
-  margin-inline: auto;
-}
 .embed-icon { font-size: 4rem; margin-bottom: var(--space-4); }
-.embed-placeholder h2 { margin-bottom: var(--space-3); }
-.embed-placeholder p { color: var(--color-text-light); }
+.section.playlist .container { display: flex; justify-content: center; align-items: center; }
 </style>
