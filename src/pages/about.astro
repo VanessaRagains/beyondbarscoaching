@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import VanessaImage from '../assets/vanessa-ragains.jpg';
 ---
 
 <BaseLayout
@@ -25,7 +27,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
       </div>
       <div class="hero-image">
-        <img src="/img/vanessa-ragains.jpg" alt="Vanessa Ragains, founder of Beyond BARS Coaching" />
+        <Image src={VanessaImage} alt="Vanessa Ragains, founder of Beyond BARS Coaching" loading="eager"></Image>
       </div>
     </div>
   </section>
@@ -64,7 +66,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <a href="/program-details" class="btn btn-primary" style="margin-top: 1.5rem;">Learn About The Program</a>
       </div>
       <div class="about-portrait">
-        <img src="/img/vanessa-ragains.jpg" alt="Vanessa Ragains" />
+        <Image src={VanessaImage} alt="Vanessa Ragains" loading="lazy"></Image>
       </div>
     </div>
   </section>
