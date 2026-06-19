@@ -61,7 +61,7 @@ All colors and fonts are CSS custom properties in `src/styles/global.css`. The b
 - [ ] Run blog migration: `npx playwright install chromium && node scripts/migrate-blog.mjs` (do this before GoDaddy is cancelled)
 - [ ] Download site images and PDFs from GoDaddy CDN → `public/img/` and `public/downloads/` (include favicon images)
 - [x] Add Podbean embed → `src/pages/podcast.astro`
-- [ ] Add Apple Music playlist URL → `src/pages/playlist.astro`
+- [x] Add Apple Music playlist URL → `src/pages/playlist.astro`
 - [ ] Add Givebutter URLs for CREW, Tech/Ops, and Workbook buckets → `src/pages/💛-choose-your-impact.astro`
 - [ ] Replace `G-XXXXXXXXXX` with real GA4 Measurement ID → `src/layouts/BaseLayout.astro`
 - [ ] DNS cutover: point domain to GitHub Pages via Cloudflare
