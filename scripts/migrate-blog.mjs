@@ -15,6 +15,7 @@ import TurndownService from 'turndown';
 import fs from 'fs';
 import path from 'path';
 import https from 'https';
+import http from 'http';
 import { URL as NodeURL } from 'url';
 
 const BLOG_URLS = [
@@ -65,15 +66,34 @@ const IMG_DIR      = path.join(process.cwd(), 'public/img/blog');
 
 const td = new TurndownService({ headingStyle: 'atx', bulletListMarker: '-' });
 
-/** Download a file to localPath, return the local path relative to /public */
+/** Normalize protocol-relative URLs to https */
+function toAbsolute(url) {
+  return url.startsWith('//') ? 'https:' + url : url;
+}
+
+/** Strip GoDaddy image transform suffix (/:/rs=w:...) to get the original */
+function stripTransform(url) {
+  return url.replace(/\/:[^/]*$/, '');
+}
+
+/** Derive a normalized file extension from a URL, defaulting to .jpg */
+function extFromUrl(url) {
+  const p = new NodeURL(toAbsolute(url)).pathname;
+  const e = path.extname(p).toLowerCase();
+  return e || '.jpg';
+}
+
+/** Download a file to localPath, following redirects */
 async function downloadFile(url, localPath) {
   const dir = path.dirname(localPath);
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-  if (fs.existsSync(localPath)) return; // already fetched
+  if (fs.existsSync(localPath)) return;
 
+  const fullUrl = toAbsolute(url);
   return new Promise((resolve, reject) => {
+    const get = fullUrl.startsWith('https') ? https.get : http.get;
     const file = fs.createWriteStream(localPath);
-    https.get(url, (res) => {
+    get(fullUrl, (res) => {
       if (res.statusCode === 301 || res.statusCode === 302) {
         file.close();
         fs.unlinkSync(localPath);
@@ -83,15 +103,10 @@ async function downloadFile(url, localPath) {
       res.pipe(file);
       file.on('finish', () => { file.close(); resolve(); });
     }).on('error', (err) => {
-      fs.unlinkSync(localPath);
+      if (fs.existsSync(localPath)) fs.unlinkSync(localPath);
       reject(err);
     });
   });
-}
-
-/** Strip GoDaddy image transform suffix (/:/rs=w:...) to get the original */
-function stripTransform(url) {
-  return url.replace(/\/:[^/]*$/, '');
 }
 
 async function migratePost(browser, postUrl) {
@@ -111,72 +126,105 @@ async function migratePost(browser, postUrl) {
     }).catch(() => { /* best-effort */ });
 
     const data = await page.evaluate(() => {
-      // Title
+      // Title: prefer a post-level heading inside the article over the page-level h1
+      // (GoDaddy sites use a generic page h1 like "The Sober Rebel Blog")
+      const postContainer =
+        document.querySelector('article') ||
+        document.querySelector('[data-hook="post-content"]') ||
+        document.querySelector('.blog-post-content') ||
+        document.querySelector('main');
+
       const title =
-        document.querySelector('h1')?.innerText?.trim() ||
+        postContainer?.querySelector('h3[role="heading"]')?.innerText?.trim() ||
+        postContainer?.querySelector('h2[role="heading"]')?.innerText?.trim() ||
+        postContainer?.querySelector('h1[role="heading"]')?.innerText?.trim() ||
         document.querySelector('[data-hook="post-title"]')?.innerText?.trim() ||
+        document.querySelector('h1')?.innerText?.trim() ||
         document.title;
 
-      // Publish date — try common selectors
+      // Publish date
       const dateEl =
         document.querySelector('time') ||
         document.querySelector('[data-hook="post-metadata-date"]') ||
         document.querySelector('.post-metadata__date');
       const pubDate = dateEl?.getAttribute('datetime') || dateEl?.innerText?.trim() || null;
 
-      // Hero image
+      // Hero image — use getAttribute to get the raw src (may be protocol-relative)
       const heroEl =
-        document.querySelector('article img') ||
         document.querySelector('[data-hook="hero-image"] img') ||
-        document.querySelector('.media-root img');
-      const heroSrc = heroEl?.src || null;
+        document.querySelector('.media-root img') ||
+        postContainer?.querySelector('img');
+      const heroSrc = heroEl?.getAttribute('src') || heroEl?.src || null;
 
-      // Body HTML — try to isolate the post body
-      const bodyEl =
-        document.querySelector('article') ||
-        document.querySelector('[data-hook="post-content"]') ||
-        document.querySelector('.blog-post-content') ||
-        document.querySelector('main');
-      const bodyHtml = bodyEl?.innerHTML || document.body.innerHTML;
+      // Body HTML
+      const bodyHtml = postContainer?.innerHTML || document.body.innerHTML;
 
-      // All images in the body
-      const images = [...document.querySelectorAll('article img, [data-hook="post-content"] img, main img')]
-        .map(img => img.src)
+      // All images — use getAttribute to preserve raw src values
+      const images = [
+        ...document.querySelectorAll('article img, [data-hook="post-content"] img, main img'),
+      ]
+        .map(img => img.getAttribute('src') || img.src)
         .filter(Boolean);
 
-      return { title, pubDate, heroSrc, bodyHtml, images };
+      // Tags/categories
+      const categoriesEl = document.querySelector('[data-aid="RSS_POST_CATEGORIES"]');
+      const categoriesText = categoriesEl?.innerText?.trim() || '';
+      const tags = categoriesText
+        ? categoriesText.split(',').map(t => t.trim()).filter(Boolean)
+        : [];
+
+      return { title, pubDate, heroSrc, bodyHtml, images, tags };
     });
 
-    // Convert body to Markdown
+    // Convert body HTML to Markdown
     let markdown = td.turndown(data.bodyHtml);
 
-    // Download images and rewrite paths
+    // Remove "All Posts" back-link (GoDaddy blog index link)
+    markdown = markdown.replace(/\[All Posts\]\([^)]*\)\n*/gi, '');
+
+    // Download images and rewrite paths in markdown
     const imgSlugDir = path.join(IMG_DIR, slug);
     const seenUrls   = new Set();
 
     const allImgUrls = [...new Set([
       ...(data.heroSrc ? [data.heroSrc] : []),
       ...data.images,
-    ])].filter(u => u.startsWith('http'));
+    ])].filter(u => u && (u.startsWith('http') || u.startsWith('//')));
 
     let heroLocalPath = null;
+    let bodyImageIndex = 0;
 
     for (const imgUrl of allImgUrls) {
-      const cleanUrl  = stripTransform(imgUrl);
+      const cleanUrl = stripTransform(imgUrl);
       if (seenUrls.has(cleanUrl)) continue;
       seenUrls.add(cleanUrl);
 
-      const ext      = path.extname(new NodeURL(cleanUrl).pathname) || '.jpg';
-      const filename = encodeURIComponent(path.basename(new NodeURL(cleanUrl).pathname)) + ext;
+      const ext = extFromUrl(cleanUrl);
+      const isHero = imgUrl === data.heroSrc;
+      const filename = isHero
+        ? `hero${ext}`
+        : `image-${String(++bodyImageIndex).padStart(2, '0')}${ext}`;
       const localAbs = path.join(imgSlugDir, filename);
       const localRel = `/img/blog/${slug}/${filename}`;
 
       try {
         await downloadFile(cleanUrl, localAbs);
-        if (!heroLocalPath && imgUrl === data.heroSrc) heroLocalPath = localRel;
-        // Replace URL references in markdown
-        markdown = markdown.replaceAll(imgUrl, localRel);
-        markdown = markdown.replaceAll(cleanUrl, localRel);
+
+        if (isHero) heroLocalPath = localRel;
+
+        // Replace all variants of this URL in the markdown:
+        // absolute (https://...), protocol-relative (//...), with/without transform suffix
+        const variants = new Set([
+          imgUrl,
+          cleanUrl,
+          toAbsolute(imgUrl),
+          toAbsolute(cleanUrl),
+          imgUrl.replace(/^https?:/, ''),
+          cleanUrl.replace(/^https?:/, ''),
+        ]);
+        for (const v of variants) {
+          if (v) markdown = markdown.replaceAll(v, localRel);
+        }
       } catch (e) {
         console.warn(`  ⚠ Failed to download ${cleanUrl}: ${e.message}`);
       }
@@ -188,6 +236,7 @@ async function migratePost(browser, postUrl) {
       `title: ${JSON.stringify(data.title)}`,
       ...(data.pubDate ? [`pubDate: ${data.pubDate}`] : []),
       ...(heroLocalPath ? [`heroImage: ${JSON.stringify(heroLocalPath)}`] : []),
+      ...(data.tags.length ? [`tags: [${data.tags.map(t => JSON.stringify(t)).join(', ')}]`] : []),
       '---',
       '',
     ].join('\n');
@@ -202,7 +251,8 @@ async function migratePost(browser, postUrl) {
     if (fs.existsSync(placeholder)) fs.unlinkSync(placeholder);
 
     fs.writeFileSync(outPath, fm + markdown, 'utf8');
-    console.log(`  ✓ ${outPath}`);
+    console.log(`  ✓ ${safeFilename}`);
+    if (data.tags.length) console.log(`    tags: ${data.tags.join(', ')}`);
   } finally {
     await page.close();
   }
