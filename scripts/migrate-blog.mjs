@@ -103,7 +103,7 @@ async function migratePost(browser, postUrl) {
 
   const page = await browser.newPage();
   try {
-    await page.goto(postUrl, { waitUntil: 'networkidle', timeout: 30000 });
+    await page.goto(postUrl, { waitUntil: 'domcontentloaded', timeout: 30000 });
 
     // Wait for main article content
     await page.waitForSelector('article, [data-testid="richTextElement"], .blog-post-content', {
