@@ -1,12 +1,14 @@
 ---
 const pathname = Astro.url.pathname;
 const isActive = (href: string) => pathname === href || pathname.startsWith(href + '/');
+import { Image } from 'astro:assets';
+import LogoImage from '../assets/logo.png';
 ---
 
 <nav class="nav">
   <div class="nav-inner container">
     <a href="/about" class="nav-logo" aria-label="Beyond BARS Coaching — Home">
-      <img src="/img/logo.png" alt="Beyond BARS Coaching" height="60" />
+      <Image src={LogoImage} alt="Beyond BARS Coaching" height="60" loading="eager"></Image>
     </a>
 
     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">

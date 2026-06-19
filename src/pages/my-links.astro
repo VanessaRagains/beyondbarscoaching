@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import LogoImage from '../assets/logo.png';
 ---
 
 <BaseLayout
@@ -11,7 +13,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="container">
       <div class="links-page">
         <div class="links-header text-center">
-          <img src="/img/logo.png" alt="Beyond BARS Coaching" class="links-logo" />
+          <Image src={LogoImage} alt="Beyond BARS Coaching" class="links-logo" loading="eager"></Image>
           <h1>Here's To Your Rebel Journey!</h1>
           <p>Beyond BARS Coaching</p>
         </div>
@@ -81,7 +83,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 .links-page { max-width: 520px; margin-inline: auto; }
 
 .links-header { margin-bottom: var(--space-10); }
-.links-logo { height: 80px; margin: 0 auto var(--space-4); }
+.links-logo { margin: 0 auto var(--space-4); }
 .links-header h1 { font-size: var(--text-2xl); margin-bottom: var(--space-2); }
 .links-header p { color: var(--color-text-muted); }
 

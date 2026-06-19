@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import LogoImage from '../assets/logo.png';
 ---
 
 <footer class="footer">
@@ -6,7 +8,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="/about" class="footer-logo-link">
-          <img src="/img/logo.png" alt="Beyond BARS Coaching" height="60" loading="lazy" />
+          <Image src={LogoImage} alt="Beyond BARS Coaching" loading="lazy"></Image>
         </a>
         <p class="footer-tagline">
           Supporting alcohol-free women in rebuilding safety, self-trust, and stability.
@@ -80,7 +82,7 @@
   gap: var(--space-8);
 }
 
-.footer-logo-link img { height: 52px; }
+.footer-logo-link img { height: 52px; width: 52px; }
 
 .footer-tagline {
   margin-top: var(--space-4);
