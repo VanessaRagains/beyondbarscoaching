@@ -1,0 +1,152 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Choose Your Impact | Beyond BARS Coaching"
+  description="Support Beyond BARS Coaching by donating to one of our impact buckets — workbooks, career accelerator, tech operations, or CREW partnership."
+>
+
+  <section class="section-sm bg-soft text-center">
+    <div class="container">
+      <h1>Choose Your Impact Bucket Below</h1>
+      <p class="page-sub">
+        Every donation transforms the life of a system-impacted woman choosing sobriety and stability.
+      </p>
+      <div class="divider"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="impact-grid grid-4">
+
+        <!-- Card 1: CREW Partnership -->
+        <div class="impact-card card">
+          <div class="card-body">
+            <div class="impact-amount">$20<span>/book</span></div>
+            <h2>Donate Workbooks To CREW</h2>
+            <p>
+              CREW is an organization that meets women after being released from jail with a
+              duffle bag full of clothes in their size and full-size amenities. Your generous
+              donation gives them a hard copy of <em>Your First 90-Days Beyond BARS</em> workbook.
+            </p>
+            <!-- TODO: Replace href with correct Givebutter URL from Vanessa -->
+            <a href="#crew-coming-soon" class="btn btn-primary" aria-describedby="crew-note">
+              Fund Our CREW Partnership
+            </a>
+            <p id="crew-note" class="coming-soon-note">Donation link coming soon</p>
+          </div>
+        </div>
+
+        <!-- Card 2: Career Accelerator -->
+        <div class="impact-card card">
+          <div class="card-body">
+            <div class="impact-amount">$5K</div>
+            <h2>Donate To Our Career Accelerator Fund</h2>
+            <p>
+              One of the biggest challenges women in transition face is career readiness. Your
+              donation helps them learn how to build a resume and LinkedIn Profile so they can
+              walk into any room ready to change their life.
+            </p>
+            <a
+              href="https://givebutter.com/accelerator-fund"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-primary"
+            >
+              Fund Our Career Accelerator
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 3: Tech & Operations -->
+        <div class="impact-card card">
+          <div class="card-body">
+            <div class="impact-amount">$234<span>/mo</span></div>
+            <h2>Help Fund Our Monthly Tech and Operations</h2>
+            <p>
+              "I rely on tech to help me stay on top of my work, relationships, while making an
+              impact in the lives of the people I serve." Your donation helps keep all systems moving!
+            </p>
+            <!-- TODO: Replace href with correct Givebutter URL from Vanessa -->
+            <a href="#tech-coming-soon" class="btn btn-primary" aria-describedby="tech-note">
+              Fund Our Tech + Daily Operations
+            </a>
+            <p id="tech-note" class="coming-soon-note">Donation link coming soon</p>
+          </div>
+        </div>
+
+        <!-- Card 4: Workbooks -->
+        <div class="impact-card card">
+          <div class="card-body">
+            <div class="impact-amount">$20<span>/book</span></div>
+            <h2>Help Keep Workbook In Stock for In-Person Cohorts</h2>
+            <p>Clients love these workbooks!</p>
+            <blockquote class="testimonial">
+              "Would recommend this workbook to anyone new to their recovery journey."
+            </blockquote>
+            <blockquote class="testimonial">
+              "I learned that I'm not alone in the way that I think and feel."
+            </blockquote>
+            <!-- TODO: Replace href with correct Givebutter URL from Vanessa -->
+            <a href="#workbook-coming-soon" class="btn btn-primary" aria-describedby="workbook-note">
+              Fund Keeping Our Workbook In Stock
+            </a>
+            <p id="workbook-note" class="coming-soon-note">Donation link coming soon</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm bg-soft text-center">
+    <div class="container">
+      <p style="color: var(--color-text-light); max-width: 560px; margin-inline: auto; font-size: var(--text-lg);">
+        For questions about donations, email
+        <a href="mailto:vanessa.ragains@gmail.com">Vanessa.Ragains@gmail.com</a>.
+        Thank you for your generous donations!
+      </p>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+.page-sub { color: var(--color-text-light); font-size: var(--text-lg); margin-top: var(--space-3); max-width: 560px; margin-inline: auto; }
+
+.impact-grid { align-items: stretch; }
+.impact-card { height: 100%; display: flex; flex-direction: column; }
+.impact-card .card-body { flex: 1; display: flex; flex-direction: column; }
+.impact-card p { color: var(--color-text-light); flex: 1; margin-bottom: var(--space-4); }
+.impact-card h2 { font-size: var(--text-xl); margin-bottom: var(--space-3); }
+.impact-card .btn { margin-top: auto; }
+
+.impact-amount {
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  color: var(--color-brand);
+  margin-bottom: var(--space-3);
+  line-height: 1;
+}
+.impact-amount span { font-size: var(--text-lg); color: var(--color-text-muted); }
+
+.testimonial {
+  border-left: 3px solid var(--color-brand-light);
+  padding-left: var(--space-3);
+  color: var(--color-text-muted);
+  font-style: italic;
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-3);
+}
+
+.coming-soon-note {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  margin-top: var(--space-2);
+  text-align: center;
+  flex: unset !important;
+}
+</style>

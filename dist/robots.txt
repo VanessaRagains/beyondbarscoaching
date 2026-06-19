@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://beyondbarscoaching.org/sitemap-index.xml

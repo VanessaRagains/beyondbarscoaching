@@ -1,0 +1,193 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Program Details | Beyond BARS Coaching"
+  description="Start your first 90 Days Beyond BARS today. A 90-day reentry coaching journey for system-impacted women choosing sobriety and stability."
+>
+
+  <!-- ── Hero ─────────────────────────────────────────────────────── -->
+  <section class="hero-program">
+    <div class="container text-center">
+      <h1>START Your First 90 Days Beyond BARS TODAY!</h1>
+      <p class="hero-sub">
+        I guide system-impacted women in transition from incarceration, rehab, or group homes
+        through a 90-day reentry journey and beyond!
+      </p>
+      <p class="welcome-note">✨ All BIPOC, LGBTQIA+ communities are welcome! ✨</p>
+    </div>
+  </section>
+
+  <!-- ── Registration Steps ────────────────────────────────────────── -->
+  <section class="section bg-soft">
+    <div class="container">
+      <div class="steps-grid grid-2">
+        <div class="step-card card card-body">
+          <div class="step-number">Step 1</div>
+          <h2>Fill Out the Registration Form</h2>
+          <p>Start here by completing the registration form so we can learn about your goals
+          and get you connected to the right support.</p>
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSfy1H7JxP4Bt5CCJz8qJ77Eb5kz5uNmn7GHEz7FX4L98ybReg/viewform"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-primary"
+          >
+            Click to Register Today!
+          </a>
+        </div>
+
+        <div class="step-card card card-body">
+          <div class="step-number">Step 2</div>
+          <h2>Join the Skool Community</h2>
+          <p>
+            Watch your inbox for your invitation to an alcohol-free community for
+            system-impacted women choosing sobriety, nervous-system safety, movement,
+            + real connection—online + IRL.
+          </p>
+          <a
+            href="https://www.skool.com/the-sober-rebel-club-6262/about"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-secondary"
+          >
+            Join The Sober Rebel Club on Skool!
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Roadmap ────────────────────────────────────────────────────── -->
+  <section class="section" id="roadmap">
+    <div class="container text-center">
+      <h2 class="section-heading">🗺️ Your Beyond BARS Roadmap</h2>
+      <div class="divider"></div>
+
+      <div class="roadmap">
+        <div class="roadmap-step active">
+          <div class="roadmap-icon">🚦</div>
+          <div class="roadmap-content">
+            <span class="roadmap-label">Step 1</span>
+            <h3>First 90-Days Beyond BARS</h3>
+            <p class="roadmap-tag">START HERE!</p>
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSfy1H7JxP4Bt5CCJz8qJ77Eb5kz5uNmn7GHEz7FX4L98ybReg/viewform"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-primary"
+            >
+              Click Here to Register!
+            </a>
+          </div>
+        </div>
+
+        <div class="roadmap-connector" aria-hidden="true"></div>
+
+        <div class="roadmap-step">
+          <div class="roadmap-icon">🛞</div>
+          <div class="roadmap-content">
+            <span class="roadmap-label">Step 2</span>
+            <h3>First 6-Months Beyond BARS</h3>
+            <p class="roadmap-prereq">Prerequisite: First 90 Days Beyond BARS</p>
+            <p class="roadmap-tag">Gain Traction!</p>
+            <button class="btn btn-secondary" disabled>Coming Soon!</button>
+          </div>
+        </div>
+
+        <div class="roadmap-connector" aria-hidden="true"></div>
+
+        <div class="roadmap-step">
+          <div class="roadmap-icon">🥁</div>
+          <div class="roadmap-content">
+            <span class="roadmap-label">Step 3</span>
+            <h3>First 9-Months Beyond BARS</h3>
+            <p class="roadmap-prereq">Prerequisites: First 90 Days &rarr; First 6 Months</p>
+            <p class="roadmap-tag">Finding Your Rhythm</p>
+            <button class="btn btn-secondary" disabled>Coming Soon!</button>
+          </div>
+        </div>
+
+        <div class="roadmap-connector" aria-hidden="true"></div>
+
+        <div class="roadmap-step">
+          <div class="roadmap-icon">🤹‍♀️</div>
+          <div class="roadmap-content">
+            <span class="roadmap-label">Step 4</span>
+            <h3>First Year Beyond BARS</h3>
+            <p class="roadmap-prereq">Prerequisites: All previous steps</p>
+            <p class="roadmap-tag">Put It All Together!</p>
+            <button class="btn btn-secondary" disabled>Coming Soon!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+.hero-program {
+  background: linear-gradient(160deg, var(--color-brand-subtle) 0%, #fff 70%);
+  padding-block: var(--space-16);
+}
+.hero-program h1 { font-size: var(--text-4xl); max-width: 700px; margin-inline: auto; margin-bottom: var(--space-4); }
+.hero-sub { font-size: var(--text-lg); color: var(--color-text-light); max-width: 600px; margin-inline: auto; margin-bottom: var(--space-3); }
+.welcome-note { font-size: var(--text-base); color: var(--color-brand-dark); font-weight: 700; }
+
+.step-number {
+  display: inline-block;
+  background: var(--color-brand);
+  color: #fff;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-3);
+}
+.step-card h2 { font-size: var(--text-2xl); margin-bottom: var(--space-3); }
+.step-card p { color: var(--color-text-light); margin-bottom: var(--space-5); }
+
+/* Roadmap */
+.roadmap { max-width: 680px; margin-inline: auto; margin-top: var(--space-10); text-align: left; }
+.roadmap-step {
+  display: flex;
+  gap: var(--space-6);
+  align-items: flex-start;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-brand-subtle);
+}
+.roadmap-step.active { border-color: var(--color-brand); }
+.roadmap-icon { font-size: 2.5rem; flex-shrink: 0; }
+.roadmap-label {
+  display: inline-block;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-brand);
+  margin-bottom: var(--space-1);
+}
+.roadmap-content h3 { font-size: var(--text-xl); margin-bottom: var(--space-2); }
+.roadmap-tag { font-weight: 700; color: var(--color-brand-dark); margin-bottom: var(--space-4); }
+.roadmap-prereq { font-size: var(--text-sm); color: var(--color-text-muted); margin-bottom: var(--space-2); }
+.roadmap-content .btn { margin-top: var(--space-2); }
+.roadmap-connector {
+  width: 2px;
+  height: 32px;
+  background: var(--color-brand-light);
+  margin: 0 auto 0 calc(var(--space-6) + 1.25rem);
+}
+
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+@media (max-width: 768px) {
+  .hero-program h1 { font-size: var(--text-3xl); }
+}
+</style>

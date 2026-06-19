@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Page Not Found | Beyond BARS Coaching">
+  <section class="section text-center">
+    <div class="container">
+      <div class="not-found">
+        <div class="not-found-emoji">🔍</div>
+        <h1>Page Not Found</h1>
+        <p>The page you're looking for doesn't exist or may have moved.</p>
+        <div class="not-found-actions">
+          <a href="/about" class="btn btn-primary">Go Home</a>
+          <a href="/blog" class="btn btn-secondary">Read the Blog</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+.not-found { max-width: 400px; margin-inline: auto; padding-block: var(--space-16); }
+.not-found-emoji { font-size: 4rem; margin-bottom: var(--space-4); }
+.not-found h1 { font-size: var(--text-4xl); margin-bottom: var(--space-4); }
+.not-found p { color: var(--color-text-light); font-size: var(--text-lg); margin-bottom: var(--space-8); }
+.not-found-actions { display: flex; gap: var(--space-3); justify-content: center; flex-wrap: wrap; }
+</style>

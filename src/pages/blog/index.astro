@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort((a, b) => {
+  const da = a.data.pubDate ? new Date(a.data.pubDate).getTime() : 0;
+  const db = b.data.pubDate ? new Date(b.data.pubDate).getTime() : 0;
+  return db - da;
+});
+
+const fmt = (d: Date) =>
+  new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' }).format(d);
+---
+
+<BaseLayout
+  title="Blog | Beyond BARS Coaching"
+  description="Read the Beyond BARS Coaching blog — articles about sobriety, nervous-system health, career development, and life beyond BARS."
+>
+
+  <section class="section-sm bg-soft text-center">
+    <div class="container">
+      <h1>The Beyond BARS Blog</h1>
+      <p class="page-sub">Articles, reflections, and resources for your rebel journey.</p>
+      <div class="divider"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      {posts.length === 0 ? (
+        <div class="no-posts text-center">
+          <p>Blog posts are being migrated. Check back soon!</p>
+        </div>
+      ) : (
+        <div class="posts-grid">
+          {posts.map((post) => (
+            <article class="post-card card">
+              {post.data.heroImage && (
+                <a href={`/blog/f/${post.slug}`} class="post-card-img-link">
+                  <img src={post.data.heroImage} alt={post.data.title} loading="lazy" />
+                </a>
+              )}
+              <div class="card-body">
+                {post.data.pubDate && (
+                  <time class="post-date">{fmt(new Date(post.data.pubDate))}</time>
+                )}
+                <h2>
+                  <a href={`/blog/f/${post.slug}`}>{post.data.title}</a>
+                </h2>
+                {post.data.description && <p class="post-excerpt">{post.data.description}</p>}
+                <a href={`/blog/f/${post.slug}`} class="read-more">Read more →</a>
+              </div>
+            </article>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+.page-sub { color: var(--color-text-light); font-size: var(--text-lg); margin-top: var(--space-3); }
+
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-8);
+}
+
+.post-card-img-link { display: block; overflow: hidden; }
+.post-card-img-link img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform var(--transition);
+}
+.post-card:hover .post-card-img-link img { transform: scale(1.03); }
+
+.post-date { font-size: var(--text-xs); color: var(--color-text-muted); display: block; margin-bottom: var(--space-2); }
+.post-card h2 { font-size: var(--text-xl); margin-bottom: var(--space-2); }
+.post-card h2 a { color: var(--color-text); }
+.post-card h2 a:hover { color: var(--color-brand); }
+.post-excerpt { color: var(--color-text-light); font-size: var(--text-sm); margin-bottom: var(--space-3); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.read-more { font-size: var(--text-sm); font-weight: 700; color: var(--color-brand); }
+.read-more:hover { color: var(--color-brand-dark); }
+
+.no-posts { padding: var(--space-16); color: var(--color-text-light); }
+
+@media (max-width: 900px) { .posts-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .posts-grid { grid-template-columns: 1fr; } }
+</style>

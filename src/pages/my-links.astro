@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="My Links | Beyond BARS Coaching"
+  description="All of Vanessa's links in one place — podcast, community, playlist, and booking."
+>
+
+  <section class="section">
+    <div class="container">
+      <div class="links-page">
+        <div class="links-header text-center">
+          <img src="/img/logo.png" alt="Beyond BARS Coaching" class="links-logo" />
+          <h1>Here's To Your Rebel Journey!</h1>
+          <p>Beyond BARS Coaching</p>
+        </div>
+
+        <div class="links-list">
+          <a
+            href="/blog/f/%F0%9F%92%9C-self-love-isn%E2%80%99t-soft-%E2%80%94-it%E2%80%99s-structured"
+            class="link-item"
+          >
+            <span class="link-emoji">✨💜</span>
+            <span>Self-Love Isn't Soft — It's Structured (Blog)</span>
+            <span class="link-arrow">→</span>
+          </a>
+
+          <a
+            href="https://www.skool.com/the-sober-rebel-club-6262/about"
+            target="_blank"
+            rel="noopener"
+            class="link-item"
+          >
+            <span class="link-emoji">✨</span>
+            <span>Join The Sober Rebel Club For Women ✨</span>
+            <span class="link-arrow">→</span>
+          </a>
+
+          <a href="/podcast" class="link-item">
+            <span class="link-emoji">🎙️</span>
+            <span>The Sober Rebel Podcast</span>
+            <span class="link-arrow">→</span>
+          </a>
+
+          <a href="/playlist" class="link-item">
+            <span class="link-emoji">🎧</span>
+            <span>Sober Rebel Playlist (Apple Music)</span>
+            <span class="link-arrow">→</span>
+          </a>
+
+          <a
+            href="https://calendar.app.google/ugCuTyYGAxa1Rprr6"
+            target="_blank"
+            rel="noopener"
+            class="link-item"
+          >
+            <span class="link-emoji">🤝</span>
+            <span>Book an In-Person Meeting With Vanessa</span>
+            <span class="link-arrow">→</span>
+          </a>
+
+          <a
+            href="https://calendar.app.google/ugCuTyYGAxa1Rprr6"
+            target="_blank"
+            rel="noopener"
+            class="link-item"
+          >
+            <span class="link-emoji">👩‍💻</span>
+            <span>Book a Virtual Meeting With Vanessa</span>
+            <span class="link-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+.links-page { max-width: 520px; margin-inline: auto; }
+
+.links-header { margin-bottom: var(--space-10); }
+.links-logo { height: 80px; margin: 0 auto var(--space-4); }
+.links-header h1 { font-size: var(--text-2xl); margin-bottom: var(--space-2); }
+.links-header p { color: var(--color-text-muted); }
+
+.links-list { display: flex; flex-direction: column; gap: var(--space-3); }
+
+.link-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  background: #fff;
+  border: 1px solid var(--color-brand-light);
+  border-radius: var(--radius-full);
+  color: var(--color-text);
+  font-weight: 700;
+  font-size: var(--text-base);
+  text-decoration: none;
+  transition: all var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+.link-item:hover {
+  background: var(--color-brand);
+  color: #fff;
+  border-color: var(--color-brand);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.link-emoji { font-size: 1.25rem; flex-shrink: 0; }
+.link-item span:nth-child(2) { flex: 1; }
+.link-arrow { color: var(--color-brand); flex-shrink: 0; transition: color var(--transition); }
+.link-item:hover .link-arrow { color: #fff; }
+</style>

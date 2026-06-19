@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Sober Rebel Playlist | Beyond BARS Coaching"
+  description="Listen to the Sober Rebel Playlist curated by Vanessa Ragains — music for your recovery journey."
+>
+
+  <section class="section-sm bg-soft text-center">
+    <div class="container">
+      <h1>🎧 The Sober Rebel Playlist</h1>
+      <p class="page-sub">Music to fuel your rebel journey.</p>
+      <div class="divider"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <!-- TODO: Replace with Apple Music embed once Vanessa provides the playlist URL.
+           Get the embed from music.apple.com → share → embed. -->
+      <div class="embed-placeholder">
+        <div class="embed-icon">🎧</div>
+        <h2>Playlist embed coming soon</h2>
+        <p>
+          We'll embed the Apple Music playlist here once we have the URL from Vanessa.
+          You can also download the
+          <a href="/downloads/sober-rebel-playlist-reflection.pdf" download>
+            Sober Rebel Playlist Reflection Exercise (PDF)
+          </a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+.page-sub { color: var(--color-text-light); font-size: var(--text-lg); margin-top: var(--space-3); }
+.embed-placeholder {
+  text-align: center;
+  padding: var(--space-16);
+  background: var(--color-bg-soft);
+  border-radius: var(--radius-xl);
+  border: 2px dashed var(--color-brand-light);
+  max-width: 600px;
+  margin-inline: auto;
+}
+.embed-icon { font-size: 4rem; margin-bottom: var(--space-4); }
+.embed-placeholder h2 { margin-bottom: var(--space-3); }
+.embed-placeholder p { color: var(--color-text-light); }
+</style>

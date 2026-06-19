@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="The Sober Rebel Podcast | Beyond BARS Coaching"
+  description="Listen to The Sober Rebel Podcast hosted by Vanessa Ragains — conversations about sobriety, nervous-system health, and life beyond BARS."
+>
+
+  <section class="section-sm bg-soft text-center">
+    <div class="container">
+      <h1>🎙️ The Sober Rebel Podcast!</h1>
+      <p class="page-sub">
+        Conversations about sobriety, nervous-system health, and life beyond BARS.
+        Hosted by Vanessa Ragains.
+      </p>
+      <div class="divider"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <!-- TODO: Replace with Podbean embed snippet from Vanessa.
+           Go to Podbean → your show → Share → Embed to get the iframe code. -->
+      <div class="embed-placeholder">
+        <div class="embed-icon">🎙️</div>
+        <h2>Podcast player coming soon</h2>
+        <p>
+          We're embedding the Podbean player here once we have the embed snippet.
+          In the meantime, you can listen directly on Podbean.
+        </p>
+        <!-- Once Vanessa provides the Podbean URL, replace this placeholder with:
+          <div class="embed-frame">
+            <iframe src="PODBEAN_EMBED_URL" ...></iframe>
+          </div>
+        -->
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+.page-sub { color: var(--color-text-light); font-size: var(--text-lg); margin-top: var(--space-3); max-width: 600px; margin-inline: auto; }
+
+.embed-placeholder {
+  text-align: center;
+  padding: var(--space-16);
+  background: var(--color-bg-soft);
+  border-radius: var(--radius-xl);
+  border: 2px dashed var(--color-brand-light);
+  max-width: 600px;
+  margin-inline: auto;
+}
+.embed-icon { font-size: 4rem; margin-bottom: var(--space-4); }
+.embed-placeholder h2 { margin-bottom: var(--space-3); }
+.embed-placeholder p { color: var(--color-text-light); }
+</style>
