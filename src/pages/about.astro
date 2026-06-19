@@ -2,6 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 import VanessaImage from '../assets/vanessa-ragains.jpg';
+import JessieImage from '../assets/board-jessie.jpg';
+import HaileyImage from '../assets/board-hailey.jpg';
 ---
 
 <BaseLayout
@@ -10,8 +12,8 @@ import VanessaImage from '../assets/vanessa-ragains.jpg';
 >
 
   <!-- ── Hero ─────────────────────────────────────────────────────── -->
-  <section class="hero">
-    <div class="container hero-inner">
+  <section class="section">
+    <div class="container text-center">
       <div class="hero-text">
         <h1>Hi Rebel! Welcome to Beyond BARS Coaching!</h1>
         <p class="hero-tagline">
@@ -19,15 +21,12 @@ import VanessaImage from '../assets/vanessa-ragains.jpg';
           self-trust, and stability through trauma-informed coaching, nervous-system education, and
           community connection.
         </p>
-        <div class="hero-actions">
+        <div>
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSfy1H7JxP4Bt5CCJz8qJ77Eb5kz5uNmn7GHEz7FX4L98ybReg/viewform" target="_blank" rel="noopener" class="btn btn-primary">
             Fill Out Registration Form
           </a>
           <a href="/%F0%9F%92%9B-choose-your-impact" class="btn btn-secondary">💛 Choose Your Impact</a>
         </div>
-      </div>
-      <div class="hero-image">
-        <Image src={VanessaImage} alt="Vanessa Ragains, founder of Beyond BARS Coaching" loading="eager"></Image>
       </div>
     </div>
   </section>
@@ -139,21 +138,21 @@ import VanessaImage from '../assets/vanessa-ragains.jpg';
       <div class="board-grid" style="margin-top: 2.5rem;">
         <div class="board-member">
           <div class="board-photo">
-            <img src="/img/board-vanessa.jpg" alt="Vanessa Ragains" />
+            <Image src={VanessaImage} alt="Vanessa Ragains" loading="lazy"></Image>
           </div>
           <h3>Vanessa Ragains</h3>
           <p class="board-title">President &amp; Founder</p>
         </div>
         <div class="board-member">
           <div class="board-photo">
-            <img src="/img/board-jessie.jpg" alt="Jessie Keck" />
+            <Image src={JessieImage} alt="Jessie Keck" loading="lazy"></Image>
           </div>
           <h3>Jessie Keck</h3>
           <p class="board-title">Treasurer</p>
         </div>
         <div class="board-member">
           <div class="board-photo">
-            <img src="/img/board-hailey.jpg" alt="Hailey Brock" />
+            <Image src={HaileyImage} alt="Hailey Brock" loading="lazy"></Image>
           </div>
           <h3>Hailey Brock</h3>
           <p class="board-title">Board Member</p>
@@ -233,8 +232,6 @@ import VanessaImage from '../assets/vanessa-ragains.jpg';
 }
 .hero-text h1 { font-size: var(--text-4xl); margin-bottom: var(--space-4); }
 .hero-tagline { font-size: var(--text-lg); color: var(--color-text-light); margin-bottom: var(--space-6); }
-.hero-actions { display: flex; gap: var(--space-3); flex-wrap: wrap; }
-.hero-image img { border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); }
 
 /* Mission */
 .mission-statement { font-size: var(--text-xl); font-family: var(--font-heading); font-style: italic; margin: var(--space-6) auto; max-width: 680px; }
@@ -244,7 +241,7 @@ import VanessaImage from '../assets/vanessa-ragains.jpg';
 .about-vanessa { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12); align-items: center; }
 .about-vanessa h2 { font-size: var(--text-3xl); margin-bottom: var(--space-4); }
 .about-vanessa p { color: var(--color-text-light); margin-bottom: var(--space-4); }
-.about-portrait img { border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); }
+.about-portrait img { border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); }
 
 /* Learn */
 .learn-icon { font-size: 2.5rem; margin-bottom: var(--space-3); }
@@ -281,7 +278,7 @@ import VanessaImage from '../assets/vanessa-ragains.jpg';
   margin: 0 auto var(--space-4);
   border: 3px solid var(--color-brand-light);
 }
-.board-photo img { width: 100%; height: 100%; object-fit: cover; }
+.board-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
 .board-member h3 { font-size: var(--text-lg); margin-bottom: var(--space-1); }
 .board-title { color: var(--color-text-muted); font-size: var(--text-sm); }
 
