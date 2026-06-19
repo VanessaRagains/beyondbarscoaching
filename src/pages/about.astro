@@ -4,6 +4,7 @@ import { Image } from 'astro:assets';
 import VanessaImage from '../assets/vanessa-ragains.jpg';
 import JessieImage from '../assets/board-jessie.jpg';
 import HaileyImage from '../assets/board-hailey.jpg';
+import FastMethod from '../assets/fast-method.png';
 ---
 
 <BaseLayout
@@ -105,6 +106,7 @@ import HaileyImage from '../assets/board-hailey.jpg';
     <div class="container text-center">
       <h2 class="section-heading">🧩 The F.A.S.T. Method</h2>
       <p class="section-sub">Healing happens through safety + repetition, not pressure.</p>
+      <Image src={FastMethod} height="400" alt="FAST Method" class="fast-method-image"></Image>
       <div class="fast-grid grid-4">
         <div class="fast-card">
           <div class="fast-letter">F</div>
@@ -250,6 +252,7 @@ import HaileyImage from '../assets/board-hailey.jpg';
 
 /* FAST */
 .fast-grid { margin-top: var(--space-10); }
+.fast-method-image { margin: 0 auto; }
 .fast-card {
   background: #fff;
   border-radius: var(--radius-lg);
