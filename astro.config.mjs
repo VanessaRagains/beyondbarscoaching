@@ -3,6 +3,6 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://vanessaragains.github.io',
-  base: '/beyondbarscoaching'
+  base: '/beyondbarscoaching',
   integrations: [sitemap()],
 });
