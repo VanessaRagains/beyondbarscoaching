@@ -1,13 +1,14 @@
 ---
 import { Image } from 'astro:assets';
 import LogoImage from '../assets/logo.png';
+const base = import.meta.env.BASE_URL;
 ---
 
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="/about" class="footer-logo-link">
+        <a href={`${base}about`} class="footer-logo-link">
           <Image src={LogoImage} alt="Beyond BARS Coaching" loading="lazy"></Image>
         </a>
         <p class="footer-tagline">
@@ -36,23 +37,23 @@ import LogoImage from '../assets/logo.png';
       <div class="footer-nav">
         <h4>Navigate</h4>
         <ul>
-          <li><a href="/about">About</a></li>
-          <li><a href="/program-details">Program Details</a></li>
-          <li><a href="/book-a-call">Book A Call</a></li>
-          <li><a href="/podcast">Podcast</a></li>
-          <li><a href="/blog">Blog</a></li>
-          <li><a href="/playlist">Playlist</a></li>
+          <li><a href={`${base}about`}>About</a></li>
+          <li><a href={`${base}program-details`}>Program Details</a></li>
+          <li><a href={`${base}book-a-call`}>Book A Call</a></li>
+          <li><a href={`${base}podcast`}>Podcast</a></li>
+          <li><a href={`${base}blog`}>Blog</a></li>
+          <li><a href={`${base}playlist`}>Playlist</a></li>
         </ul>
       </div>
 
       <div class="footer-nav">
         <h4>More</h4>
         <ul>
-          <li><a href="/%F0%9F%92%9B-choose-your-impact">💛 Choose Your Impact</a></li>
+          <li><a href={`${base}%F0%9F%92%9B-choose-your-impact`}>💛 Choose Your Impact</a></li>
           <li><a href="https://g.page/r/CQObw53DEI7TEBI/review" target="_blank" rel="noopener">Reviews</a></li>
-          <li><a href="/beyond-bars-program#faq">FAQs</a></li>
-          <li><a href="/privacy-statement">Privacy Statement</a></li>
-          <li><a href="/terms-%26-conditions-1">Terms &amp; Conditions</a></li>
+          <li><a href={`${base}beyond-bars-program#faq`}>FAQs</a></li>
+          <li><a href={`${base}privacy-statement`}>Privacy Statement</a></li>
+          <li><a href={`${base}terms-%26-conditions-1`}>Terms &amp; Conditions</a></li>
         </ul>
       </div>
 

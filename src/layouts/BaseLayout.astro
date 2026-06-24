@@ -22,6 +22,7 @@ const {
 const GA_ID = 'G-WXNTXP1GRK';
 const siteUrl = 'https://beyondbarscoaching.org';
 const canonicalUrl = canonical ?? siteUrl + Astro.url.pathname;
+const base = import.meta.env.BASE_URL;
 ---
 
 <!doctype html>
@@ -50,11 +51,11 @@ const canonicalUrl = canonical ?? siteUrl + Astro.url.pathname;
     <meta name="twitter:image"       content={siteUrl + ogImage} />
 
     <!-- Favicons -->
-    <link rel="icon" href="/favicon.ico" sizes="48x48" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="icon" href={`${base}favicon.ico`} sizes="48x48" />
+    <link rel="icon" href={`${base}favicon.svg`} type="image/svg+xml" />
+    <link rel="icon" type="image/png" sizes="96x96" href={`${base}favicon-96x96.png`} />
+    <link rel="apple-touch-icon" sizes="180x180" href={`${base}apple-touch-icon.png`} />
+    <link rel="manifest" href={`${base}site.webmanifest`} />
 
     <!-- Google Fonts (preconnect for perf) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

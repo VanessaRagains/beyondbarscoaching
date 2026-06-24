@@ -1,6 +1,6 @@
 ---
-// Root redirects to /about (matching live site behaviour where logo links to /about)
+const base = import.meta.env.BASE_URL;
 ---
-<meta http-equiv="refresh" content="0; url=/about" />
-<script>window.location.replace('/about');</script>
-<p>Redirecting to <a href="/about">Beyond BARS Coaching</a>…</p>
+<meta http-equiv="refresh" content={`0; url=${base}about`} />
+<script define:vars={{ base }}>window.location.replace(base + 'about');</script>
+<p>Redirecting to <a href={`${base}about`}>Beyond BARS Coaching</a>…</p>

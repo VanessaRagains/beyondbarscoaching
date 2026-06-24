@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 import LogoImage from '../assets/logo.png';
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout
@@ -20,7 +21,7 @@ import LogoImage from '../assets/logo.png';
 
         <div class="links-list">
           <a
-            href="/blog/f/%F0%9F%92%9C-self-love-isn%E2%80%99t-soft-%E2%80%94-it%E2%80%99s-structured"
+            href={`${base}blog/f/%F0%9F%92%9C-self-love-isn%E2%80%99t-soft-%E2%80%94-it%E2%80%99s-structured`}
             class="link-item"
           >
             <span class="link-emoji">✨💜</span>
@@ -39,13 +40,13 @@ import LogoImage from '../assets/logo.png';
             <span class="link-arrow">→</span>
           </a>
 
-          <a href="/podcast" class="link-item">
+          <a href={`${base}podcast`} class="link-item">
             <span class="link-emoji">🎙️</span>
             <span>The Sober Rebel Club Podcast</span>
             <span class="link-arrow">→</span>
           </a>
 
-          <a href="/playlist" class="link-item">
+          <a href={`${base}playlist`} class="link-item">
             <span class="link-emoji">🎧</span>
             <span>Sober Rebel Playlist (Apple Music)</span>
             <span class="link-arrow">→</span>

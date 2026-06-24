@@ -1,13 +1,19 @@
 ---
-const pathname = Astro.url.pathname;
-const isActive = (href: string) => pathname === href || pathname.startsWith(href + '/');
 import { Image } from 'astro:assets';
 import LogoImage from '../assets/logo.png';
+
+const base = import.meta.env.BASE_URL;
+const baseNoTrail = base.endsWith('/') ? base.slice(0, -1) : base;
+const pathname = Astro.url.pathname;
+const isActive = (path: string) => {
+  const full = baseNoTrail + path;
+  return pathname === full || pathname.startsWith(full + '/');
+};
 ---
 
 <nav class="nav">
   <div class="nav-inner container">
-    <a href="/about" class="nav-logo" aria-label="Beyond BARS Coaching — Home">
+    <a href={base + 'about'} class="nav-logo" aria-label="Beyond BARS Coaching — Home">
       <Image src={LogoImage} alt="Beyond BARS Coaching" height="60" loading="eager"></Image>
     </a>
 
@@ -17,45 +23,45 @@ import LogoImage from '../assets/logo.png';
 
     <ul class="nav-menu" id="nav-menu" role="list">
       <li>
-        <a href="/about" class:list={['nav-link', { active: isActive('/about') }]}>About</a>
+        <a href={base + 'about'} class:list={['nav-link', { active: isActive('/about') }]}>About</a>
       </li>
 
       <li class="nav-dropdown">
         <button class="nav-link nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
-          Work With Me <span class="nav-caret" aria-hidden="true">▾</span>
+          Work With Me <span class="nav-caret" aria-hidden="true">&#9662;</span>
         </button>
         <ul class="nav-dropdown-menu" role="list">
-          <li><a href="/program-details">Program Details</a></li>
+          <li><a href={base + 'program-details'}>Program Details</a></li>
           <li><a href="https://www.skool.com/the-sober-rebel-club-6262/about" target="_blank" rel="noopener">Sober Rebel Club</a></li>
-          <li><a href="/about#resources">Free Resources</a></li>
-          <li><a href="/book-a-call">Book A Call</a></li>
+          <li><a href={base + 'about#resources'}>Free Resources</a></li>
+          <li><a href={base + 'book-a-call'}>Book A Call</a></li>
         </ul>
       </li>
 
       <li>
-        <a href="/podcast" class:list={['nav-link', { active: isActive('/podcast') }]}>Podcast</a>
+        <a href={base + 'podcast'} class:list={['nav-link', { active: isActive('/podcast') }]}>Podcast</a>
       </li>
 
       <li>
-        <a href="/blog" class:list={['nav-link', { active: isActive('/blog') }]}>Blog</a>
+        <a href={base + 'blog'} class:list={['nav-link', { active: isActive('/blog') }]}>Blog</a>
       </li>
 
       <li>
-        <a href="/playlist" class:list={['nav-link', { active: isActive('/playlist') }]}>Playlist</a>
+        <a href={base + 'playlist'} class:list={['nav-link', { active: isActive('/playlist') }]}>Playlist</a>
       </li>
 
       <li class="nav-dropdown">
         <button class="nav-link nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
-          More <span class="nav-caret" aria-hidden="true">▾</span>
+          More <span class="nav-caret" aria-hidden="true">&#9662;</span>
         </button>
         <ul class="nav-dropdown-menu" role="list">
-          <li><a href="/beyond-bars-program#faq">FAQs</a></li>
+          <li><a href={base + 'beyond-bars-program#faq'}>FAQs</a></li>
           <li><a href="https://g.page/r/CQObw53DEI7TEBI/review" target="_blank" rel="noopener">Reviews</a></li>
         </ul>
       </li>
 
       <li>
-        <a href="/%F0%9F%92%9B-choose-your-impact" class="nav-link nav-cta">💛 Choose Your Impact</a>
+        <a href={base + '%F0%9F%92%9B-choose-your-impact'} class="nav-link nav-cta">&#x1F49B; Choose Your Impact</a>
       </li>
     </ul>
   </div>

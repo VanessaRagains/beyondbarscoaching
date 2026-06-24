@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout
@@ -21,7 +22,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         For our full Privacy Policy &amp; SMS Communication policy, please download the PDF below:
       </p>
 
-      <a href="/downloads/privacy-policy.pdf" class="btn btn-primary" download style="margin: 1.5rem 0; display: inline-flex; align-items: center; gap: 0.5rem;">
+      <a href={`${base}downloads/privacy-policy.pdf`} class="btn btn-primary" download style="margin: 1.5rem 0; display: inline-flex; align-items: center; gap: 0.5rem;">
         📄 Download Privacy Policy &amp; SMS Communication (PDF)
       </a>
 

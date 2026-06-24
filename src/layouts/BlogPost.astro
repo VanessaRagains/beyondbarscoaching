@@ -9,6 +9,7 @@ interface Props {
 }
 
 const { title, description, pubDate, heroImage } = Astro.props;
+const base = import.meta.env.BASE_URL;
 
 const formattedDate = pubDate
   ? new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' }).format(pubDate)
@@ -34,7 +35,7 @@ const formattedDate = pubDate
         <slot />
 
         <div class="post-footer">
-          <a href="/blog" class="btn btn-secondary">&larr; Back to Blog</a>
+          <a href={`${base}blog`} class="btn btn-secondary">&larr; Back to Blog</a>
         </div>
       </div>
     </div>

@@ -5,6 +5,7 @@ import VanessaImage from '../assets/vanessa-ragains.jpg';
 import JessieImage from '../assets/board-jessie.jpg';
 import HaileyImage from '../assets/board-hailey.jpg';
 import FastMethod from '../assets/fast-method.png';
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout
@@ -26,7 +27,7 @@ import FastMethod from '../assets/fast-method.png';
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSfy1H7JxP4Bt5CCJz8qJ77Eb5kz5uNmn7GHEz7FX4L98ybReg/viewform" target="_blank" rel="noopener" class="btn btn-primary">
             Fill Out Registration Form
           </a>
-          <a href="/%F0%9F%92%9B-choose-your-impact" class="btn btn-secondary">💛 Choose Your Impact</a>
+          <a href={`${base}%F0%9F%92%9B-choose-your-impact`} class="btn btn-secondary">💛 Choose Your Impact</a>
         </div>
       </div>
     </div>
@@ -63,7 +64,7 @@ import FastMethod from '../assets/fast-method.png';
           I bring over two decades of holistic practice to every coaching relationship. I retired
           from my Massage Therapy career and poured all of that knowledge into this work.
         </p>
-        <a href="/program-details" class="btn btn-primary" style="margin-top: 1.5rem;">Learn About The Program</a>
+        <a href={`${base}program-details`} class="btn btn-primary" style="margin-top: 1.5rem;">Learn About The Program</a>
       </div>
       <div class="about-portrait">
         <Image src={VanessaImage} alt="Vanessa Ragains" loading="lazy"></Image>
@@ -169,39 +170,39 @@ import FastMethod from '../assets/fast-method.png';
       <h2 class="section-heading">🚀 Free Resources</h2>
       <p class="section-sub">Download these tools to start your journey today.</p>
       <div class="resources-grid grid-3">
-        <a href="/downloads/vocational-training-resource-list.pdf" class="resource-card"  target="_blank" rel="noopener">
+        <a href={`${base}downloads/vocational-training-resource-list.pdf`} class="resource-card"  target="_blank" rel="noopener">
           <div class="resource-icon">📋</div>
           <p>Vocational Training Resource List Cheat Sheet</p>
         </a>
-        <a href="/downloads/linkedin-profile-networking-checklist.pdf" class="resource-card"  target="_blank" rel="noopener">
+        <a href={`${base}downloads/linkedin-profile-networking-checklist.pdf`} class="resource-card"  target="_blank" rel="noopener">
           <div class="resource-icon">💼</div>
           <p>LinkedIn Profile &amp; Networking Checklist</p>
         </a>
-        <a href="/downloads/chaos-to-calm-packet.pdf" class="resource-card"  target="_blank" rel="noopener">
+        <a href={`${base}downloads/chaos-to-calm-packet.pdf`} class="resource-card"  target="_blank" rel="noopener">
           <div class="resource-icon">🌿</div>
           <p>Chaos to Calm Packet (Pranayama &amp; Yoga Sequences)</p>
         </a>
-        <a href="/downloads/healthy-boundaries-cheat-sheet.pdf" class="resource-card"  target="_blank" rel="noopener">
+        <a href={`${base}downloads/healthy-boundaries-cheat-sheet.pdf`} class="resource-card"  target="_blank" rel="noopener">
           <div class="resource-icon">🛡️</div>
           <p>Healthy Boundaries Cheat Sheet</p>
         </a>
-        <a href="/downloads/3-brains-in-real-life.pdf" class="resource-card"  target="_blank" rel="noopener">
+        <a href={`${base}downloads/3-brains-in-real-life.pdf`} class="resource-card"  target="_blank" rel="noopener">
           <div class="resource-icon">🧠</div>
           <p>The 3 Brains in Real Life</p>
         </a>
-        <a href="/downloads/create-your-own-rebel-manifesto.pdf" class="resource-card">
+        <a href={`${base}downloads/create-your-own-rebel-manifesto.pdf`} class="resource-card">
           <div class="resource-icon">✊</div>
           <p>Create Your Own Rebel Manifesto</p>
         </a>
-        <a href="/downloads/sober-rebel-playlist-reflection.pdf" class="resource-card"  target="_blank" rel="noopener">
+        <a href={`${base}downloads/sober-rebel-playlist-reflection.pdf`} class="resource-card"  target="_blank" rel="noopener">
           <div class="resource-icon">🎵</div>
           <p>Sober Rebel Playlist Reflection Exercise</p>
         </a>
-        <a href="/downloads/yoga-sequences.pdf" class="resource-card"  target="_blank" rel="noopener">
+        <a href={`${base}downloads/yoga-sequences.pdf`} class="resource-card"  target="_blank" rel="noopener">
           <div class="resource-icon">🧘</div>
           <p>Yoga Sequences</p>
         </a>
-        <a href="/downloads/foam-roller-charts.pdf" class="resource-card"  target="_blank" rel="noopener">
+        <a href={`${base}downloads/foam-roller-charts.pdf`} class="resource-card"  target="_blank" rel="noopener">
           <div class="resource-icon">🏋️</div>
           <p>Foam Roller Charts</p>
         </a>
@@ -214,7 +215,7 @@ import FastMethod from '../assets/fast-method.png';
     <div class="container text-center">
       <h2>Support the Mission</h2>
       <p>Each Sober Rebel is sponsored by generous donations from people who believe in this cause.</p>
-      <a href="/%F0%9F%92%9B-choose-your-impact" class="btn btn-white" style="margin-top: 1.5rem;">💛 Choose Your Impact</a>
+      <a href={`${base}%F0%9F%92%9B-choose-your-impact`} class="btn btn-white" style="margin-top: 1.5rem;">💛 Choose Your Impact</a>
     </div>
   </section>
 
