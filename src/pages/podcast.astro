@@ -12,8 +12,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <h1>🎙️ The Sober Rebel Club Podcast!</h1>
       <p class="page-sub">
         Conversations about sobriety, nervous-system health, and life beyond BARS.
-        Hosted by Vanessa Ragains.
+        Hosted by Vanessa Ragains, AKA Coach Veeeee.
       </p>
+      <a href="https://podcasts.apple.com/us/podcast/the-sober-rebel-podcast/id1881449538" target="_blank" rel="noopener" class="apple-badge">
+        <img src="https://tools.applemediaservices.com/api/badges/listen-on-apple-podcasts/badge/en-us?size=250x83" alt="Listen on Apple Podcasts" height="40" />
+      </a>
       <div class="divider"></div>
     </div>
   </section>
@@ -45,6 +48,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   max-width: 600px;
   margin-inline: auto;
 }
+.apple-badge { display: inline-block; margin-top: var(--space-4); }
+.apple-badge img { height: 40px; width: auto; }
 .embed-icon { font-size: 4rem; margin-bottom: var(--space-4); }
 .embed-placeholder h2 { margin-bottom: var(--space-3); }
 .embed-placeholder p { color: var(--color-text-light); }
