@@ -46,16 +46,6 @@ const isActive = (path: string) => {
         <a href={base + 'playlist'} class:list={['nav-link', { active: isActive('/playlist') }]}>Playlist</a>
       </li>
 
-      <li class="nav-dropdown">
-        <button class="nav-link nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
-          More <span class="nav-caret" aria-hidden="true">&#9662;</span>
-        </button>
-        <ul class="nav-dropdown-menu" role="list">
-          <li><a href={base + 'beyond-bars-program#faq'}>FAQs</a></li>
-          <li><a href="https://g.page/r/CQObw53DEI7TEBI/review" target="_blank" rel="noopener">Reviews</a></li>
-        </ul>
-      </li>
-
       <li>
         <a href={base + '%F0%9F%92%9B-choose-your-impact'} class="nav-link nav-cta">&#x1F49B; Choose Your Impact</a>
       </li>
