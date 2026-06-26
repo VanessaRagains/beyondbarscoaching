@@ -8,7 +8,7 @@ const base = import.meta.env.BASE_URL;
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href={`${base}about`} class="footer-logo-link">
+        <a href={base} class="footer-logo-link">
           <Image src={LogoImage} alt="Beyond BARS Coaching" loading="lazy"></Image>
         </a>
         <p class="footer-tagline">
@@ -37,7 +37,6 @@ const base = import.meta.env.BASE_URL;
       <div class="footer-nav">
         <h4>Navigate</h4>
         <ul>
-          <li><a href={`${base}about`}>About</a></li>
           <li><a href={`${base}program-details`}>Program Details</a></li>
           <li><a href={`${base}book-a-call`}>Book A Call</a></li>
           <li><a href={`${base}podcast`}>Podcast</a></li>

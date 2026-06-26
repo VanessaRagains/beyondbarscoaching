@@ -13,7 +13,7 @@ const isActive = (path: string) => {
 
 <nav class="nav">
   <div class="nav-inner container">
-    <a href={base + 'about'} class="nav-logo" aria-label="Beyond BARS Coaching — Home">
+    <a href={base} class="nav-logo" aria-label="Beyond BARS Coaching — Home">
       <Image src={LogoImage} alt="Beyond BARS Coaching" height="60" loading="eager"></Image>
     </a>
 
@@ -22,10 +22,6 @@ const isActive = (path: string) => {
     </button>
 
     <ul class="nav-menu" id="nav-menu" role="list">
-      <li>
-        <a href={base + 'about'} class:list={['nav-link', { active: isActive('/about') }]}>About</a>
-      </li>
-
       <li class="nav-dropdown">
         <button class="nav-link nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
           Work With Me <span class="nav-caret" aria-hidden="true">&#9662;</span>
@@ -33,7 +29,7 @@ const isActive = (path: string) => {
         <ul class="nav-dropdown-menu" role="list">
           <li><a href={base + 'program-details'}>Program Details</a></li>
           <li><a href="https://www.skool.com/the-sober-rebel-club-6262/about" target="_blank" rel="noopener">Sober Rebel Club</a></li>
-          <li><a href={base + 'about#resources'}>Free Resources</a></li>
+          <li><a href={base + '#resources'}>Free Resources</a></li>
           <li><a href={base + 'book-a-call'}>Book A Call</a></li>
         </ul>
       </li>
