@@ -64,7 +64,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
         <!-- Card 3: Sober Rebel Club -->
         <div class="impact-card card">
-          <img src="/img/choose-your-impact/sober-rebel-club.jpg" alt="The Sober Rebel Club for Women" class="impact-card-img" />
+          <img src="/img/choose-your-impact/sober-rebel-club.jpg" alt="The Sober Rebel Club for Women" class="impact-card-img impact-card-img--contain" />
           <div class="card-body">
             <div class="impact-amount">$15K</div>
             <h2>Fund The Sober Rebel Club for Women</h2>
@@ -166,6 +166,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   object-fit: cover;
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   display: block;
+}
+.impact-card-img--contain {
+  object-fit: contain;
+  background: #1a2e1a;
 }
 .tech-card .impact-card-img {
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
