@@ -102,8 +102,8 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-heading); line-height: 1.25; color: 
   text-decoration: none;
   line-height: 1;
 }
-.btn-primary { background: #5c3d99; color: #fff; border-color: #5c3d99; }
-.btn-primary:hover { background: #4a2e80; border-color: #4a2e80; color: #fff; }
+.btn-primary { background: #6a4c94; color: #fff; border-color: #6a4c94; }
+.btn-primary:hover { background: #533a75; border-color: #533a75; color: #fff; }
 .btn-secondary { background: transparent; color: var(--color-brand); border-color: var(--color-brand); }
 .btn-secondary:hover { background: var(--color-brand); color: #fff; }
 .btn-white { background: #fff; color: var(--color-brand-dark); border-color: #fff; }
