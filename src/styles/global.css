@@ -22,9 +22,9 @@
   --color-text-muted:   #888888;
 
   --color-nav-bg:       #ffffff;
-  --color-footer-bg:    #688662;
-  --color-footer-text:  #c9b8dc;
-  --color-footer-muted: #ae97c6;
+  --color-footer-bg:    #006974;
+  --color-footer-text:  #688662;
+  --color-footer-muted: #688662;
 
   /* Fonts — Unbounded (headings) + DM Sans (body) */
   --font-heading: 'Unbounded', sans-serif;
