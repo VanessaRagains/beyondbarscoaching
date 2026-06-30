@@ -1,12 +1,17 @@
 /* ── Design Tokens ─────────────────────────────────────────────── */
-/* NOTE: #ae97c9 is confirmed from live site meta-theme-color.
-   All other color values are derived from that anchor and need
-   visual verification against the live site via browser DevTools. */
 :root {
-  --color-brand:        #ae97c9;
+  /* Brand palette from brand guide */
+  --color-brand:        #ae97c6;
   --color-brand-light:  #c9b8dc;
-  --color-brand-dark:   #8b72b0;
+  --color-brand-dark:   #6A3B7D;
   --color-brand-subtle: #f0eaf8;
+
+  --color-teal:         #006974;
+  --color-teal-dark:    #004d57;
+  --color-gold:         #E7AD00;
+  --color-gold-dark:    #b88900;
+  --color-green-dark:   #063831;
+  --color-sage:         #688662;
 
   --color-bg:           #ffffff;
   --color-bg-soft:      #faf7fd;
@@ -17,13 +22,13 @@
   --color-text-muted:   #888888;
 
   --color-nav-bg:       #ffffff;
-  --color-footer-bg:    #2c1f3e;
+  --color-footer-bg:    #063831;
   --color-footer-text:  #e8dff5;
-  --color-footer-muted: #b8a8d0;
+  --color-footer-muted: #a8c4a0;
 
-  /* Fonts — verify against DevTools */
-  --font-heading: 'Playfair Display', Georgia, serif;
-  --font-body:    'Lato', Arial, sans-serif;
+  /* Fonts — Unbounded (headings) + DM Sans (body) */
+  --font-heading: 'Unbounded', sans-serif;
+  --font-body:    'DM Sans', Arial, sans-serif;
 
   --text-xs:   0.75rem;
   --text-sm:   0.875rem;
@@ -102,8 +107,8 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-heading); line-height: 1.25; color: 
   text-decoration: none;
   line-height: 1;
 }
-.btn-primary { background: #6a4c94; color: #fff; border-color: #6a4c94; }
-.btn-primary:hover { background: #533a75; border-color: #533a75; color: #fff; }
+.btn-primary { background: var(--color-brand-dark); color: #fff; border-color: var(--color-brand-dark); }
+.btn-primary:hover { background: #521d63; border-color: #521d63; color: #fff; }
 .btn-secondary { background: transparent; color: var(--color-brand); border-color: var(--color-brand); }
 .btn-secondary:hover { background: var(--color-brand); color: #fff; }
 .btn-white { background: #fff; color: var(--color-brand-dark); border-color: #fff; }
@@ -136,14 +141,14 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-heading); line-height: 1.25; color: 
 }
 
 /* ── Misc helpers ───────────────────────────────────────────────── */
-.divider { width: 60px; height: 3px; background: var(--color-brand); margin: var(--space-4) auto; border-radius: var(--radius-full); }
+.divider { width: 60px; height: 3px; background: var(--color-teal); margin: var(--space-4) auto; border-radius: var(--radius-full); }
 .section-heading { font-size: var(--text-3xl); margin-bottom: var(--space-4); }
 .section-sub { font-size: var(--text-lg); color: var(--color-text-light); margin-bottom: var(--space-8); }
 
 .bg-soft    { background: var(--color-bg-soft); }
 .bg-section { background: var(--color-bg-section); }
 .bg-dark    { background: var(--color-footer-bg); color: var(--color-footer-text); }
-.bg-brand   { background: var(--color-brand); color: #fff; }
+.bg-brand   { background: var(--color-teal); color: #fff; }
 
 /* ── Responsive ─────────────────────────────────────────────────── */
 @media (max-width: 768px) {
@@ -172,7 +177,7 @@ summary {
   gap: var(--space-4);
 }
 summary::-webkit-details-marker { display: none; }
-summary::after { content: '+'; font-size: var(--text-xl); color: var(--color-brand); flex-shrink: 0; }
+summary::after { content: '+'; font-size: var(--text-xl); color: var(--color-gold); flex-shrink: 0; }
 details[open] summary::after { content: '−'; }
 .faq-body { padding: 0 0 var(--space-6) 0; color: var(--color-text-light); }
 .faq-body p + p { margin-top: var(--space-3); }
@@ -189,7 +194,7 @@ details[open] summary::after { content: '−'; }
 .prose img { border-radius: var(--radius-md); margin: var(--space-8) auto; }
 .prose a { text-decoration: underline; }
 .prose blockquote {
-  border-left: 4px solid var(--color-brand);
+  border-left: 4px solid var(--color-teal);
   padding-left: var(--space-4);
   color: var(--color-text-light);
   font-style: italic;
