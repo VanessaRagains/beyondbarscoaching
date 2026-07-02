@@ -34,8 +34,8 @@ const fmt = (d: Date) =>
         </div>
       ) : (
         <div class="posts-grid">
-          {posts.map((post) => (
-            <article class="post-card card">
+          {posts.map((post, i) => (
+            <article class={`post-card card accent-${i % 3}`}>
               {post.data.heroImage && (
                 <a href={`${base}blog/${post.slug}`} class="post-card-img-link">
                   <img src={post.data.heroImage} alt={post.data.title} loading="lazy" />
@@ -87,6 +87,12 @@ const fmt = (d: Date) =>
 .read-more:hover { color: var(--color-brand-dark); }
 
 .no-posts { padding: var(--space-16); color: var(--color-text-light); }
+
+/* Alternating brand color tabs */
+.post-card { border-top: 4px solid transparent; }
+.accent-0 { border-top-color: var(--color-brand); }
+.accent-1 { border-top-color: var(--color-teal); }
+.accent-2 { border-top-color: var(--color-gold); }
 
 @media (max-width: 900px) { .posts-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px) { .posts-grid { grid-template-columns: 1fr; } }
