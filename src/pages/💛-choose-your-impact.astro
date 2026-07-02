@@ -25,7 +25,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="impact-card card">
           <img src="/img/choose-your-impact/CREW.jpg" alt="Women welcoming someone home" class="impact-card-img" />
           <div class="card-body">
-            <div class="impact-amount">$20K</div>
+            <div class="impact-goal-wrap"><span class="impact-goal-label">Fundraising Goal</span><div class="impact-amount">$20K</div></div>
             <h2>Help me send 1000 workbooks to CREW!!!</h2>
             <p>
               CREW is an organization that meets women after being released from jail with a
@@ -43,7 +43,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="impact-card card">
           <img src="/img/choose-your-impact/career-accelerator.jpg" alt="Resume tips notebook" class="impact-card-img" />
           <div class="card-body">
-            <div class="impact-amount">$5K</div>
+            <div class="impact-goal-wrap"><span class="impact-goal-label">Fundraising Goal</span><div class="impact-amount">$5K</div></div>
             <h2>Donate To Our Career Accelerator Fund</h2>
             <p>
               One of the biggest challenges women in transition face is career readiness. This
@@ -66,7 +66,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="impact-card card">
           <img src="/img/choose-your-impact/sober-rebel-club.png" alt="The Sober Rebel Club for Women" class="impact-card-img" />
           <div class="card-body">
-            <div class="impact-amount">$15K</div>
+            <div class="impact-goal-wrap"><span class="impact-goal-label">Fundraising Goal</span><div class="impact-amount">$15K</div></div>
             <h2>Fund The Sober Rebel Club for Women</h2>
             <p>
               The Sober Rebel Club is an alcohol-free community for system-impacted women
@@ -90,7 +90,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="impact-card card">
           <img src="/img/choose-your-impact/workbook.jpg" alt="Woman planning at a vision board" class="impact-card-img" />
           <div class="card-body">
-            <div class="impact-amount">$20<span>/book</span></div>
+            <div class="impact-goal-wrap"><span class="impact-goal-label">Cost Per Book</span><div class="impact-amount">$20<span>/book</span></div></div>
             <h2>Help Keep Workbook In Stock for In-Person Cohorts</h2>
             <p>Clients love these workbooks! Typical groups are 10–20 people per cohort.</p>
             <blockquote class="testimonial">
@@ -120,7 +120,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="tech-card card">
           <img src="/img/choose-your-impact/tech-ops.jpg" alt="Colorful abstract representing connection and technology" class="impact-card-img" />
         <div class="card-body">
-          <div class="impact-amount">$500–$1K<span>/mo</span></div>
+          <div class="impact-goal-wrap"><span class="impact-goal-label">Monthly Goal</span><div class="impact-amount">$500–$1K<span>/mo</span></div></div>
           <h2>Help Fund Our Monthly Tech and Operations</h2>
           <p>
             I rely on tech to help me stay on top of my work, relationships, while making an
@@ -188,12 +188,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 .tech-card p { color: var(--color-text-light); margin-bottom: var(--space-4); }
 .tech-card h2 { font-size: var(--text-xl); margin-bottom: var(--space-3); }
 
+.impact-goal-wrap { margin-bottom: var(--space-3); }
+.impact-goal-label {
+  display: block;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-teal);
+  margin-bottom: var(--space-1);
+}
+
 .impact-amount {
   font-family: var(--font-heading);
   font-size: var(--text-3xl);
   font-weight: 700;
   color: var(--color-gold-dark);
-  margin-bottom: var(--space-3);
   line-height: 1;
 }
 .impact-amount span { font-size: var(--text-lg); color: var(--color-text-muted); }
