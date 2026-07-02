@@ -37,7 +37,7 @@ const fmt = (d: Date) =>
           {posts.map((post) => (
             <article class="post-card card">
               {post.data.heroImage && (
-                <a href={`${base}blog/f/${post.slug}`} class="post-card-img-link">
+                <a href={`${base}blog/${post.slug}`} class="post-card-img-link">
                   <img src={post.data.heroImage} alt={post.data.title} loading="lazy" />
                 </a>
               )}
@@ -46,10 +46,10 @@ const fmt = (d: Date) =>
                   <time class="post-date">{fmt(new Date(post.data.pubDate))}</time>
                 )}
                 <h2>
-                  <a href={`${base}blog/f/${post.slug}`}>{post.data.title}</a>
+                  <a href={`${base}blog/${post.slug}`}>{post.data.title}</a>
                 </h2>
                 {post.data.description && <p class="post-excerpt">{post.data.description}</p>}
-                <a href={`${base}blog/f/${post.slug}`} class="read-more">Read more →</a>
+                <a href={`${base}blog/${post.slug}`} class="read-more">Read more →</a>
               </div>
             </article>
           ))}
