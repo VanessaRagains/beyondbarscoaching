@@ -10,7 +10,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <!-- ── Countdown ticker ──────────────────────────────────────────── -->
   <div class="ticker-bar">
     <div class="ticker-inner">
-      <span class="ticker-label">🗓 Next Sober Rebel Event:</span>
+      <span class="ticker-label">🗓 <span id="event-name">Next Sober Rebel Event:</span></span>
       <span id="countdown" class="ticker-countdown">Loading…</span>
     </div>
   </div>
@@ -217,17 +217,56 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 </style>
 
 <script>
-  // Countdown timer — update TARGET_DATE to the next event date/time
-  const TARGET_DATE = new Date('2025-08-01T10:00:00-07:00'); // ← update this
+  const CALENDAR_ID = '3ff40b04552d5439a46741cbeeda7f088f97d63364d3f882e56669bec454f7e1@group.calendar.google.com';
+  const API_KEY     = 'AIzaSyBk9L2xQmzqI83AEWWlJyNoYIwxtUBDo-4';
 
-  function updateCountdown() {
-    const now = new Date();
-    const diff = TARGET_DATE.getTime() - now.getTime();
-    const el = document.getElementById('countdown');
+  let targetDate: Date | null = null;
+  let eventName = '';
+  let countdownInterval: ReturnType<typeof setInterval> | null = null;
+
+  async function fetchNextEvent() {
+    const el    = document.getElementById('countdown');
+    const label = document.getElementById('event-name');
     if (!el) return;
 
+    try {
+      const now = new Date().toISOString();
+      const url = `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(CALENDAR_ID)}/events?key=${API_KEY}&timeMin=${now}&maxResults=1&orderBy=startTime&singleEvents=true`;
+      const res  = await fetch(url);
+      const data = await res.json();
+
+      if (!data.items || data.items.length === 0) {
+        el.textContent = 'No upcoming events — check back soon!';
+        return;
+      }
+
+      const event = data.items[0];
+      eventName   = event.summary || 'Next Event';
+      const start = event.start.dateTime || event.start.date;
+      targetDate  = new Date(start);
+
+      if (label) label.textContent = eventName + ':';
+
+      startCountdown(el);
+    } catch (e) {
+      const el = document.getElementById('countdown');
+      if (el) el.textContent = 'Check the calendar below for upcoming events!';
+    }
+  }
+
+  function startCountdown(el: HTMLElement) {
+    if (countdownInterval) clearInterval(countdownInterval);
+    tick(el);
+    countdownInterval = setInterval(() => tick(el), 1000);
+  }
+
+  function tick(el: HTMLElement) {
+    if (!targetDate) return;
+    const diff = targetDate.getTime() - Date.now();
+
     if (diff <= 0) {
-      el.textContent = '🎉 Event is happening now!';
+      el.textContent = '🎉 Happening now!';
+      if (countdownInterval) clearInterval(countdownInterval);
       return;
     }
 
@@ -239,6 +278,5 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     el.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
   }
 
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
+  fetchNextEvent();
 </script>
