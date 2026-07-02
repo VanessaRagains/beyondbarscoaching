@@ -22,7 +22,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="impact-grid grid-4">
 
         <!-- Card 1: CREW Partnership -->
-        <div class="impact-card card">
+        <div class="impact-card card accent-crew">
           <img src="/img/choose-your-impact/CREW.jpg" alt="Women welcoming someone home" class="impact-card-img" />
           <div class="card-body">
             <div class="impact-goal-wrap"><span class="impact-goal-label">Fundraising Goal</span><div class="impact-amount">$20K</div></div>
@@ -33,14 +33,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               donation gives them a hard copy of <em>Your First 90-Days Beyond BARS</em> workbook.
               Help us reach our goal of sending 1,000 workbooks!
             </p>
-            <a href="https://givebutter.com/crew-partnership" target="_blank" rel="noopener" class="btn btn-primary">
+            <a href="https://givebutter.com/crew-partnership" target="_blank" rel="noopener" class="btn btn-crew">
               Fund Our CREW Partnership
             </a>
           </div>
         </div>
 
         <!-- Card 2: Career Accelerator -->
-        <div class="impact-card card">
+        <div class="impact-card card accent-accelerator">
           <img src="/img/choose-your-impact/career-accelerator.jpg" alt="Resume tips notebook" class="impact-card-img" />
           <div class="card-body">
             <div class="impact-goal-wrap"><span class="impact-goal-label">Fundraising Goal</span><div class="impact-amount">$5K</div></div>
@@ -51,19 +51,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               Your donation helps them learn how to build a resume and LinkedIn Profile so they can
               walk into any room ready to change their life.
             </p>
-            <a
-              href="https://givebutter.com/accelerator-program-fund"
-              target="_blank"
-              rel="noopener"
-              class="btn btn-primary"
-            >
+            <a href="https://givebutter.com/accelerator-program-fund" target="_blank" rel="noopener" class="btn btn-accelerator">
               Fund Our Career Accelerator
             </a>
           </div>
         </div>
 
         <!-- Card 3: Sober Rebel Club -->
-        <div class="impact-card card">
+        <div class="impact-card card accent-src">
           <img src="/img/choose-your-impact/sober-rebel-club.png" alt="The Sober Rebel Club for Women" class="impact-card-img" />
           <div class="card-body">
             <div class="impact-goal-wrap"><span class="impact-goal-label">Fundraising Goal</span><div class="impact-amount">$15K</div></div>
@@ -75,19 +70,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               in-person meeting costs, tech for online gatherings, and SAFE transportation
               to and from our activities.
             </p>
-            <a
-              href="https://givebutter.com/SoberRebelClub"
-              target="_blank"
-              rel="noopener"
-              class="btn btn-primary"
-            >
+            <a href="https://givebutter.com/SoberRebelClub" target="_blank" rel="noopener" class="btn btn-src">
               Fund The Sober Rebel Club
             </a>
           </div>
         </div>
 
         <!-- Card 4: Workbooks -->
-        <div class="impact-card card">
+        <div class="impact-card card accent-workbook">
           <img src="/img/choose-your-impact/workbook.jpg" alt="Woman planning at a vision board" class="impact-card-img" />
           <div class="card-body">
             <div class="impact-goal-wrap"><span class="impact-goal-label">Cost Per Book</span><div class="impact-amount">$20<span>/book</span></div></div>
@@ -99,12 +89,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <blockquote class="testimonial">
               "I learned that I'm not alone in the way that I think and feel."
             </blockquote>
-            <a
-              href="https://givebutter.com/SponsorARebel"
-              target="_blank"
-              rel="noopener"
-              class="btn btn-primary"
-            >
+            <a href="https://givebutter.com/SponsorARebel" target="_blank" rel="noopener" class="btn btn-workbook">
               Fund Keeping Our Workbook In Stock
             </a>
           </div>
@@ -117,7 +102,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <!-- Tech & Operations — smaller donation option -->
   <section class="section bg-soft">
     <div class="container text-center">
-      <div class="tech-card card">
+      <div class="tech-card card accent-tech">
           <img src="/img/choose-your-impact/tech-ops.jpg" alt="Colorful abstract representing connection and technology" class="impact-card-img" />
         <div class="card-body">
           <div class="impact-goal-wrap"><span class="impact-goal-label">Monthly Goal</span><div class="impact-amount">$500–$1K<span>/mo</span></div></div>
@@ -127,7 +112,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             impact in the lives of the people I serve. Your donation helps keep all systems moving
             and gives us wiggle room for the unexpected expenses that come with running a nonprofit!
           </p>
-          <a href="https://givebutter.com/BBC-monthly" target="_blank" rel="noopener" class="btn btn-primary">
+          <a href="https://givebutter.com/BBC-monthly" target="_blank" rel="noopener" class="btn btn-tech">
             Fund Our Tech + Daily Operations
           </a>
         </div>
@@ -216,6 +201,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   font-size: var(--text-sm);
   margin-bottom: var(--space-3);
 }
+
+/* Per-card accent tabs */
+.impact-card, .tech-card { border-top: 4px solid transparent; }
+.accent-crew        { border-top-color: var(--color-brand); }
+.accent-accelerator { border-top-color: var(--color-teal); }
+.accent-src         { border-top-color: var(--color-brand-dark); }
+.accent-workbook    { border-top-color: var(--color-gold); }
+.accent-tech        { border-top-color: var(--color-sage); }
+
+/* Per-card buttons */
+.btn-crew        { background: var(--color-brand);      color: #fff; border-color: var(--color-brand); }
+.btn-crew:hover  { background: var(--color-brand-dark); border-color: var(--color-brand-dark); color: #fff; }
+.btn-accelerator        { background: var(--color-teal);      color: #fff; border-color: var(--color-teal); }
+.btn-accelerator:hover  { background: var(--color-teal-dark); border-color: var(--color-teal-dark); color: #fff; }
+.btn-src        { background: var(--color-brand-dark); color: #fff; border-color: var(--color-brand-dark); }
+.btn-src:hover  { background: #521d63;                 border-color: #521d63; color: #fff; }
+.btn-workbook        { background: var(--color-gold);      color: var(--color-green-dark); border-color: var(--color-gold); }
+.btn-workbook:hover  { background: var(--color-gold-dark); border-color: var(--color-gold-dark); color: var(--color-green-dark); }
+.btn-tech        { background: var(--color-sage);  color: #fff; border-color: var(--color-sage); }
+.btn-tech:hover  { background: #4e6649;            border-color: #4e6649; color: #fff; }
 
 .coming-soon-note {
   font-size: var(--text-xs);
