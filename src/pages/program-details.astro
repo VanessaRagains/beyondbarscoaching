@@ -48,7 +48,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="divider"></div>
 
       <div class="roadmap">
-        <div class="roadmap-step active">
+        <div class="roadmap-step active accent-90">
           <div class="roadmap-icon">🚦</div>
           <div class="roadmap-content">
             <span class="roadmap-label">Step 1</span>
@@ -67,7 +67,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
         <div class="roadmap-connector" aria-hidden="true"></div>
 
-        <div class="roadmap-step">
+        <div class="roadmap-step accent-6mo">
           <div class="roadmap-icon">🛞</div>
           <div class="roadmap-content">
             <span class="roadmap-label">Step 2</span>
@@ -80,7 +80,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
         <div class="roadmap-connector" aria-hidden="true"></div>
 
-        <div class="roadmap-step">
+        <div class="roadmap-step accent-9mo">
           <div class="roadmap-icon">🥁</div>
           <div class="roadmap-content">
             <span class="roadmap-label">Step 3</span>
@@ -93,7 +93,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
         <div class="roadmap-connector" aria-hidden="true"></div>
 
-        <div class="roadmap-step">
+        <div class="roadmap-step accent-1yr">
           <div class="roadmap-icon">🤹‍♀️</div>
           <div class="roadmap-content">
             <span class="roadmap-label">Step 4</span>
@@ -144,8 +144,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   padding: var(--space-6);
   box-shadow: var(--shadow-md);
   border: 1px solid var(--color-brand-subtle);
+  border-left-width: 5px;
 }
 .roadmap-step.active { border-color: var(--color-brand); }
+.accent-90  { border-left-color: var(--color-sage) !important; }
+.accent-6mo { border-left-color: var(--color-brand) !important; }
+.accent-9mo { border-left-color: var(--color-teal) !important; }
+.accent-1yr { border-left-color: var(--color-gold) !important; }
 .roadmap-icon { font-size: 2.5rem; flex-shrink: 0; }
 .roadmap-label {
   display: inline-block;
