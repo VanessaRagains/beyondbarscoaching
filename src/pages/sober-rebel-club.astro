@@ -236,7 +236,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       const data = await res.json();
 
       if (!data.items || data.items.length === 0) {
-        el.textContent = 'No upcoming events — check back soon!';
+        el.textContent = 'No upcoming events scheduled yet — check back soon!';
+        if (label) label.textContent = '🗓 Sober Rebel Club:';
         return;
       }
 
@@ -250,7 +251,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       startCountdown(el);
     } catch (e) {
       const el = document.getElementById('countdown');
-      if (el) el.textContent = 'Check the calendar below for upcoming events!';
+      if (el) el.textContent = 'See the calendar below for next event ↓';
     }
   }
 
