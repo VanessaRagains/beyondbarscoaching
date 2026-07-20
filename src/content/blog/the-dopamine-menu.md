@@ -43,6 +43,12 @@ Inside our coaching and community work, the Dopamine Menu shows up in a few prac
 - In **journal therapy work**, we use prompts to explore why certain cravings show up when they do — what need is actually underneath them — so the menu item you choose is treating the real hunger, not just distracting from it.
 - In the **Sober Rebel Club community**, members share what's working on their own menus, which means you're never building this alone. Someone else's Appetizer might become your new favorite.
 
+## Download the Dopamine Menu
+
+Want a copy to keep? We made a printable version you can put on your fridge, tuck into your journal, or save to your phone.
+
+[📥 Download the Dopamine Menu (PDF)](/downloads/dopamine-menu.pdf)
+
 ## Your Invitation
 
 Print the menu. Put it somewhere you'll actually see it — the fridge, your phone's lock screen, tucked into your journal. The next time a craving hits, you're not asking "what do I do?" You're asking "what sounds good right now?" And this time, the answer doesn't cost you your recovery.
