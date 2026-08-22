@@ -41,6 +41,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
+  <!-- ── Workbook Nudge ───────────────────────────────────────────── -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="workbook-nudge card card-body accent-gold">
+        <div class="nudge-inner">
+          <div class="nudge-text">
+            <h3>📖 Grab Your Workbook Before You Start</h3>
+            <p>Your First 90 Days Beyond BARS workbook is your companion through this entire journey — coaching exercises, daily planner, journal prompts, yoga sequences, and more. Every purchase funds a free copy for someone who can't afford one.</p>
+          </div>
+          <div class="nudge-cta">
+            <div class="nudge-price">$22.99</div>
+            <a href="/workbook" class="btn btn-primary">Buy the Workbook</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ── Roadmap ────────────────────────────────────────────────────── -->
   <section class="section" id="roadmap">
     <div class="container text-center">
@@ -174,6 +192,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 }
 
 button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* Workbook nudge */
+.workbook-nudge { border-left: 5px solid var(--color-gold); }
+.nudge-inner { display: flex; gap: var(--space-8); align-items: center; }
+.nudge-text { flex: 1; }
+.nudge-text h3 { font-size: var(--text-xl); margin-bottom: var(--space-2); }
+.nudge-text p { color: var(--color-text-light); margin: 0; }
+.nudge-cta { text-align: center; flex-shrink: 0; }
+.nudge-price { font-family: var(--font-heading); font-size: var(--text-3xl); font-weight: 700; color: var(--color-brand-dark); margin-bottom: var(--space-3); }
+@media (max-width: 640px) {
+  .nudge-inner { flex-direction: column; }
+  .nudge-cta { width: 100%; }
+}
 
 @media (max-width: 768px) {
   .hero-program h1 { font-size: var(--text-3xl); }
