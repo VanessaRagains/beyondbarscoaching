@@ -74,6 +74,62 @@ const base = import.meta.env.BASE_URL;
   </head>
   <body>
     <Nav />
+
+    <!-- Cohort 1 enrollment banner: counts down to Dec 1 2026, then shows open through Jan 7 2027 -->
+    <div id="cohort-banner" class="cohort-banner" style="display:none" aria-live="polite">
+      <div class="cohort-banner-inner">
+        <span id="cohort-banner-msg"></span>
+        <a href="/cohorts" class="cohort-banner-btn">See All Cohorts</a>
+        <button class="cohort-banner-close" aria-label="Dismiss banner" onclick="this.closest('#cohort-banner').style.display='none';sessionStorage.setItem('cohortBannerDismissed','1')">✕</button>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        if (sessionStorage.getItem('cohortBannerDismissed')) return;
+
+        const ENROLLMENT_OPEN  = new Date('2026-12-01T00:00:00');
+        const ENROLLMENT_CLOSE = new Date('2027-01-08T00:00:00'); // Jan 7 end of day
+        const now = new Date();
+
+        const banner = document.getElementById('cohort-banner');
+        const msg    = document.getElementById('cohort-banner-msg');
+        if (!banner || !msg) return;
+
+        if (now >= ENROLLMENT_CLOSE) return; // banner expired
+
+        if (now >= ENROLLMENT_OPEN) {
+          // Enrollment is open
+          msg.innerHTML = '🎉 <strong>Cohort 1 Enrollment is Open!</strong> Join the January 12, 2027 cohort — spots are limited.';
+          banner.style.display = '';
+          banner.classList.add('is-open');
+          return;
+        }
+
+        // Countdown mode
+        banner.style.display = '';
+
+        function tick() {
+          const diff = ENROLLMENT_OPEN - new Date();
+          if (diff <= 0) {
+            msg.innerHTML = '🎉 <strong>Cohort 1 Enrollment is Open!</strong> Join the January 12, 2027 cohort — spots are limited.';
+            banner.classList.add('is-open');
+            return;
+          }
+          const d = Math.floor(diff / 86400000);
+          const h = Math.floor((diff % 86400000) / 3600000);
+          const m = Math.floor((diff % 3600000) / 60000);
+          const s = Math.floor((diff % 60000) / 1000);
+          msg.innerHTML =
+            '📅 <strong>Cohort 1 Enrollment Opens December 1!</strong> ' +
+            d + 'd ' + h + 'h ' + m + 'm ' + s + 's';
+        }
+
+        tick();
+        setInterval(tick, 1000);
+      })();
+    </script>
+
     <main>
       <slot />
     </main>
