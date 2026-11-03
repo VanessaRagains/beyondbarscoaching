@@ -170,13 +170,14 @@ const base = import.meta.env.BASE_URL;
       <h2 class="section-heading">🚀 Free Resources</h2>
       <p class="section-sub">Download these tools to start your journey today.</p>
       <div class="resources-grid grid-3">
-        <a href={`${base}downloads/first-90-days-chart.pdf`} class="resource-card" target="_blank" rel="noopener">
-          <div class="resource-icon">📅</div>
-          <p>First 90 Days: Body, Heart &amp; Mind Timeline</p>
+        <!-- ── Holiday-season resources first ── -->
+        <a href={`${base}downloads/holiday-dopamine-menu.pdf`} class="resource-card" target="_blank" rel="noopener">
+          <div class="resource-icon">🎄</div>
+          <p>Holiday Dopamine Menu &amp; F.A.S.T. Method Holiday Edition</p>
         </a>
-        <a href="https://vimeo.com/reviews/3525b5a9-eee1-49f5-b518-a6f61138735f/users/129237958/folders/4648951" class="resource-card" target="_blank" rel="noopener">
-          <div class="resource-icon">🧘</div>
-          <p>Yoga Video Library</p>
+        <a href={`${base}downloads/seasonal-recovery-toolkit.pdf`} class="resource-card" target="_blank" rel="noopener">
+          <div class="resource-icon">🍂</div>
+          <p>Seasonal Recovery Toolkit</p>
         </a>
         <a href={`${base}downloads/dopamine-menu.pdf`} class="resource-card" target="_blank" rel="noopener">
           <div class="resource-icon">⚗️</div>
@@ -186,49 +187,54 @@ const base = import.meta.env.BASE_URL;
           <div class="resource-icon">🥗</div>
           <p>Weekly Meal Planner</p>
         </a>
-        <a href={`${base}downloads/seasonal-recovery-toolkit.pdf`} class="resource-card" target="_blank" rel="noopener">
-          <div class="resource-icon">🍂</div>
-          <p>Seasonal Recovery Toolkit</p>
-        </a>
-        <a href={`${base}downloads/vocational-training-resource-list.pdf`} class="resource-card"  target="_blank" rel="noopener">
-          <div class="resource-icon">📋</div>
-          <p>Vocational Training Resource List Cheat Sheet</p>
-        </a>
-        <a href={`${base}downloads/linkedin-profile-networking-checklist.pdf`} class="resource-card"  target="_blank" rel="noopener">
-          <div class="resource-icon">💼</div>
-          <p>LinkedIn Profile &amp; Networking Checklist</p>
-        </a>
-        <a href={`${base}downloads/chaos-to-calm-packet.pdf`} class="resource-card"  target="_blank" rel="noopener">
-          <div class="resource-icon">🌿</div>
-          <p>Chaos to Calm Packet (Pranayama &amp; Yoga Sequences)</p>
-        </a>
-        <a href={`${base}downloads/healthy-boundaries-cheat-sheet.pdf`} class="resource-card"  target="_blank" rel="noopener">
+        <a href={`${base}downloads/healthy-boundaries-cheat-sheet.pdf`} class="resource-card" target="_blank" rel="noopener">
           <div class="resource-icon">🛡️</div>
           <p>Healthy Boundaries Cheat Sheet</p>
         </a>
-        <a href={`${base}downloads/3-brains-in-real-life.pdf`} class="resource-card"  target="_blank" rel="noopener">
-          <div class="resource-icon">🧠</div>
-          <p>The 3 Brains in Real Life</p>
+        <a href={`${base}downloads/chaos-to-calm-packet.pdf`} class="resource-card" target="_blank" rel="noopener">
+          <div class="resource-icon">🌿</div>
+          <p>Chaos to Calm Packet (Pranayama &amp; Yoga Sequences)</p>
         </a>
-        <a href={`${base}downloads/create-your-own-rebel-manifesto.pdf`} class="resource-card">
-          <div class="resource-icon">✊</div>
-          <p>Create Your Own Rebel Manifesto</p>
+        <!-- ── Year-round resources ── -->
+        <a href={`${base}downloads/first-90-days-chart.pdf`} class="resource-card" target="_blank" rel="noopener">
+          <div class="resource-icon">📅</div>
+          <p>First 90 Days: Body, Heart &amp; Mind Timeline</p>
         </a>
-        <a href={`${base}downloads/sober-rebel-playlist-reflection.pdf`} class="resource-card"  target="_blank" rel="noopener">
-          <div class="resource-icon">🎵</div>
-          <p>Sober Rebel Playlist Reflection Exercise</p>
+        <a href="https://vimeo.com/reviews/3525b5a9-eee1-49f5-b518-a6f61138735f/users/129237958/folders/4648951" class="resource-card" target="_blank" rel="noopener">
+          <div class="resource-icon">🧘</div>
+          <p>Yoga Video Library</p>
         </a>
         <a href={`${base}downloads/support-coaching-safety.pdf`} class="resource-card" target="_blank" rel="noopener">
           <div class="resource-icon">🛟</div>
           <p>Support, Coaching &amp; Safety</p>
         </a>
-        <a href={`${base}downloads/foam-roller-charts.pdf`} class="resource-card"  target="_blank" rel="noopener">
+        <a href={`${base}downloads/3-brains-in-real-life.pdf`} class="resource-card" target="_blank" rel="noopener">
+          <div class="resource-icon">🧠</div>
+          <p>The 3 Brains in Real Life</p>
+        </a>
+        <a href={`${base}downloads/create-your-own-rebel-manifesto.pdf`} class="resource-card" target="_blank" rel="noopener">
+          <div class="resource-icon">✊</div>
+          <p>Create Your Own Rebel Manifesto</p>
+        </a>
+        <a href={`${base}downloads/sober-rebel-playlist-reflection.pdf`} class="resource-card" target="_blank" rel="noopener">
+          <div class="resource-icon">🎵</div>
+          <p>Sober Rebel Playlist Reflection Exercise</p>
+        </a>
+        <a href={`${base}downloads/foam-roller-charts.pdf`} class="resource-card" target="_blank" rel="noopener">
           <div class="resource-icon">🏋️</div>
           <p>Foam Roller Charts</p>
         </a>
         <a href={`${base}downloads/three-pillars-flowchart.png`} class="resource-card" target="_blank" rel="noopener">
           <div class="resource-icon">🌿</div>
           <p>The Three Pillars in Action</p>
+        </a>
+        <a href={`${base}downloads/vocational-training-resource-list.pdf`} class="resource-card" target="_blank" rel="noopener">
+          <div class="resource-icon">📋</div>
+          <p>Vocational Training Resource List Cheat Sheet</p>
+        </a>
+        <a href={`${base}downloads/linkedin-profile-networking-checklist.pdf`} class="resource-card" target="_blank" rel="noopener">
+          <div class="resource-icon">💼</div>
+          <p>LinkedIn Profile &amp; Networking Checklist</p>
         </a>
       </div>
     </div>
