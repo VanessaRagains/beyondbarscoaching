@@ -146,6 +146,12 @@ const base = import.meta.env.BASE_URL;
         if (!wrap) return;
         wrap.style.display = '';
 
+        // Seasonal green palette override
+        document.documentElement.style.setProperty('--color-brand',        '#688662');
+        document.documentElement.style.setProperty('--color-brand-light',  '#8aab84');
+        document.documentElement.style.setProperty('--color-brand-dark',   '#063831');
+        document.documentElement.style.setProperty('--color-brand-subtle', '#e8f0e8');
+
         // Snow
         const canvas = document.getElementById('snow-canvas') as HTMLCanvasElement;
         const ctx = canvas.getContext('2d');
