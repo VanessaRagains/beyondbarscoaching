@@ -52,6 +52,9 @@ const isActive = (path: string) => {
       </li>
 
       <li>
+        <a href={base + 'giving-tuesday'} class="nav-link nav-gt">🎁 Giving Tuesday</a>
+      </li>
+      <li>
         <a href={base + 'choose-your-impact'} class="nav-link nav-cta">&#x1F49B; Choose Your Impact</a>
       </li>
     </ul>
@@ -112,6 +115,14 @@ const isActive = (path: string) => {
   padding: 0.4rem 1rem;
 }
 .nav-cta:hover { background: var(--color-teal-dark); }
+.nav-gt {
+  background: var(--color-gold);
+  color: var(--color-green-dark) !important;
+  border-radius: var(--radius-full);
+  padding: 0.4rem 1rem;
+  font-weight: 700;
+}
+.nav-gt:hover { background: var(--color-gold-dark); color: var(--color-green-dark) !important; }
 
 /* Dropdowns */
 .nav-dropdown { position: relative; }

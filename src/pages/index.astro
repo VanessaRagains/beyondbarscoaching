@@ -33,6 +33,23 @@ const base = import.meta.env.BASE_URL;
     </div>
   </section>
 
+  <!-- ── Giving Tuesday spotlight ─────────────────────────────────── -->
+  <section class="section-sm gt-spotlight">
+    <div class="container">
+      <div class="gt-card">
+        <div class="gt-card-text">
+          <p class="gt-eyebrow">🎁 Giving Tuesday · December 1, 2026</p>
+          <h2>$6K for 6 Years of Impact</h2>
+          <p>Six years of walking alongside women rebuilding their lives beyond bars. Help us celebrate — and fund the next chapter.</p>
+        </div>
+        <div class="gt-card-cta">
+          <a href="/giving-tuesday" class="btn btn-primary">See the Campaign →</a>
+          <a href="https://givebutter.com/c/6k46yrs" target="_blank" rel="noopener" class="btn btn-secondary">Donate on GiveButter</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ── Mission ───────────────────────────────────────────────────── -->
   <section class="section bg-soft">
     <div class="container text-center">
@@ -269,6 +286,35 @@ const base = import.meta.env.BASE_URL;
 .hero-links a { margin-bottom: var(--space-1); }
 
 /* Mission */
+/* Giving Tuesday spotlight */
+.gt-spotlight { background: linear-gradient(135deg, #e8f0e8 0%, #fff8e1 100%); }
+.gt-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-8);
+  flex-wrap: wrap;
+  border: 2px solid var(--color-gold);
+  border-radius: var(--radius-xl);
+  padding: var(--space-7) var(--space-8);
+  background: rgba(255,255,255,0.8);
+}
+.gt-eyebrow {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-teal);
+  margin-bottom: var(--space-2);
+}
+.gt-card-text h2 { font-size: var(--text-2xl); margin-bottom: var(--space-2); }
+.gt-card-text p { color: var(--color-text-light); margin: 0; max-width: 480px; }
+.gt-card-cta { display: flex; gap: var(--space-3); flex-wrap: wrap; flex-shrink: 0; }
+@media (max-width: 640px) {
+  .gt-card { flex-direction: column; }
+  .gt-card-cta { width: 100%; }
+}
+
 .mission-statement { font-size: var(--text-xl); font-family: var(--font-heading); font-style: italic; margin: var(--space-6) auto; max-width: 680px; }
 .mission-body { max-width: 620px; margin-inline: auto; color: var(--color-text-light); }
 

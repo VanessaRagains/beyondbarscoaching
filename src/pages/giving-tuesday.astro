@@ -1,0 +1,273 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
+
+const GIVING_TUESDAY = new Date('2026-12-01T00:00:00');
+const CAMPAIGN_URL   = 'https://givebutter.com/c/6k46yrs';
+---
+
+<BaseLayout
+  title="Giving Tuesday 2026 | Beyond BARS Coaching"
+  description="Help us raise $6K for 6 years of impact — supporting system-impacted women rebuilding safety, self-trust, and stability. Donate on Giving Tuesday, December 1, 2026."
+>
+
+  <!-- Hero -->
+  <section class="gt-hero">
+    <div class="container text-center">
+      <p class="gt-eyebrow">🎁 Giving Tuesday · December 1, 2026</p>
+      <h1>$6K for 6 Years of Impact</h1>
+      <p class="gt-sub">
+        Help us raise $6,000 to celebrate six years of Beyond BARS Coaching — and fund
+        the next chapter of supporting women rebuilding safety, self-trust, and stability
+        after incarceration, rehab, or group homes.
+      </p>
+
+      <!-- Countdown -->
+      <div class="gt-countdown" id="gt-countdown">
+        <div class="countdown-block"><span id="cd-d">--</span><label>Days</label></div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-block"><span id="cd-h">--</span><label>Hours</label></div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-block"><span id="cd-m">--</span><label>Min</label></div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-block"><span id="cd-s">--</span><label>Sec</label></div>
+      </div>
+      <p id="gt-open-msg" class="gt-open-msg" style="display:none">
+        🎉 <strong>Giving Tuesday is HERE!</strong> Every dollar counts today.
+      </p>
+    </div>
+  </section>
+
+  <!-- Why $6K -->
+  <section class="section-sm bg-soft">
+    <div class="container">
+      <div class="why-grid">
+        <div class="why-card card card-body accent-teal">
+          <div class="why-icon">🌱</div>
+          <h3>6 Years of Showing Up</h3>
+          <p>Since 2020, Beyond BARS has walked alongside women navigating one of life's hardest transitions — without judgment, without conditions.</p>
+        </div>
+        <div class="why-card card card-body accent-gold">
+          <div class="why-icon">📖</div>
+          <h3>Buy-One-Give-One Workbooks</h3>
+          <p>Your gift helps put a free workbook in the hands of a woman who can't afford one. Every purchase already funds one — your donation doubles the reach.</p>
+        </div>
+        <div class="why-card card card-body accent-purple">
+          <div class="why-icon">💬</div>
+          <h3>Fund the 2027 Cohorts</h3>
+          <p>Scholarship seats in the January, May, and August cohorts go to women who would otherwise be priced out. This is what $6K can do.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GiveButter embed -->
+  <section class="section" id="donate">
+    <div class="container">
+      <h2 class="section-heading text-center">Choose Your Impact</h2>
+      <div class="divider"></div>
+
+      <div class="gb-wrap">
+        <iframe
+          src={CAMPAIGN_URL}
+          class="gb-frame"
+          title="Giving Tuesday: Choose Your Impact 2026 — Beyond BARS Coaching fundraiser on GiveButter"
+          loading="lazy"
+          allow="payment"
+        ></iframe>
+
+        <!-- Fallback shown if iframe is blocked -->
+        <noscript>
+          <div class="gb-fallback">
+            <p>Your browser blocked the embedded donation form.</p>
+            <a href={CAMPAIGN_URL} target="_blank" rel="noopener" class="btn btn-primary">Donate on GiveButter →</a>
+          </div>
+        </noscript>
+      </div>
+
+      <p class="gb-note">
+        Prefer to open the full page?
+        <a href={CAMPAIGN_URL} target="_blank" rel="noopener">Donate directly on GiveButter →</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Share -->
+  <section class="section-sm bg-soft text-center">
+    <div class="container">
+      <h2 class="section-heading">Spread the Word</h2>
+      <p style="color:var(--color-text-light);max-width:520px;margin-inline:auto;margin-bottom:var(--space-6);">
+        Can't give right now? Sharing goes a long way. Every person who sees this campaign
+        is one more person who might become a donor or champion for our women.
+      </p>
+      <div class="share-row">
+        <a
+          href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(CAMPAIGN_URL)}`}
+          target="_blank" rel="noopener" class="btn btn-secondary">Share on Facebook</a>
+        <a
+          href={`https://twitter.com/intent/tweet?text=${encodeURIComponent('Help Beyond BARS Coaching raise $6K for 6 years of impact — supporting system-impacted women rebuilding their lives. Donate on #GivingTuesday 🎁')}&url=${encodeURIComponent(CAMPAIGN_URL)}`}
+          target="_blank" rel="noopener" class="btn btn-secondary">Share on X</a>
+        <a
+          href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(CAMPAIGN_URL)}`}
+          target="_blank" rel="noopener" class="btn btn-secondary">Share on LinkedIn</a>
+        <a href={CAMPAIGN_URL} target="_blank" rel="noopener" class="btn btn-primary">Donate Now →</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<script>
+  (function () {
+    const GT = new Date('2026-12-01T00:00:00');
+    const countdown = document.getElementById('gt-countdown');
+    const openMsg   = document.getElementById('gt-open-msg');
+    const dEl = document.getElementById('cd-d');
+    const hEl = document.getElementById('cd-h');
+    const mEl = document.getElementById('cd-m');
+    const sEl = document.getElementById('cd-s');
+    if (!dEl) return;
+
+    function tick() {
+      const diff = GT.getTime() - Date.now();
+      if (diff <= 0) {
+        if (countdown) countdown.style.display = 'none';
+        if (openMsg)   openMsg.style.display = '';
+        return;
+      }
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff % 86400000) / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+      dEl.textContent = String(d).padStart(2, '0');
+      hEl.textContent = String(h).padStart(2, '0');
+      mEl.textContent = String(m).padStart(2, '0');
+      sEl.textContent = String(s).padStart(2, '0');
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+</script>
+
+<style>
+/* Hero */
+.gt-hero {
+  background: linear-gradient(160deg, #e8f0e8 0%, #fff 70%);
+  padding-block: var(--space-14);
+}
+.gt-eyebrow {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-teal);
+  margin-bottom: var(--space-3);
+}
+.gt-hero h1 { font-size: var(--text-4xl); margin-bottom: var(--space-4); }
+.gt-sub {
+  font-size: var(--text-lg);
+  color: var(--color-text-light);
+  max-width: 620px;
+  margin-inline: auto;
+  margin-bottom: var(--space-10);
+}
+
+/* Countdown */
+.gt-countdown {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--color-green-dark);
+  color: #fff;
+  border-radius: var(--radius-xl);
+  padding: var(--space-5) var(--space-8);
+}
+.countdown-block { text-align: center; min-width: 3.5rem; }
+.countdown-block span {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: var(--text-4xl);
+  font-weight: 700;
+  line-height: 1;
+}
+.countdown-block label {
+  display: block;
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.7;
+  margin-top: var(--space-1);
+}
+.countdown-sep {
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  opacity: 0.5;
+  margin-bottom: var(--space-4);
+}
+.gt-open-msg {
+  font-size: var(--text-xl);
+  color: var(--color-green-dark);
+  margin-top: var(--space-4);
+}
+
+/* Why cards */
+.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); }
+.why-icon { font-size: 2rem; margin-bottom: var(--space-3); }
+.why-card h3 { font-size: var(--text-lg); margin-bottom: var(--space-2); }
+.why-card p { color: var(--color-text-light); font-size: var(--text-sm); margin: 0; }
+
+/* Accent borders */
+.accent-teal   { border-left: 5px solid var(--color-teal); }
+.accent-gold   { border-left: 5px solid var(--color-gold); }
+.accent-purple { border-left: 5px solid var(--color-brand-dark); }
+
+/* GiveButter embed */
+.gb-wrap {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  min-height: 700px;
+  background: #f9f9f9;
+}
+.gb-frame {
+  width: 100%;
+  min-height: 700px;
+  border: none;
+  display: block;
+}
+.gb-fallback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  padding: var(--space-12);
+  text-align: center;
+  color: var(--color-text-light);
+}
+.gb-note {
+  text-align: center;
+  margin-top: var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+.gb-note a { text-decoration: underline; }
+
+/* Share */
+.share-row {
+  display: flex;
+  gap: var(--space-3);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .gt-hero h1 { font-size: var(--text-3xl); }
+  .why-grid { grid-template-columns: 1fr; }
+  .gt-countdown { padding: var(--space-4) var(--space-5); gap: var(--space-1); }
+  .countdown-block span { font-size: var(--text-3xl); }
+  .countdown-block { min-width: 2.5rem; }
+  .gb-frame { min-height: 800px; }
+}
+</style>
