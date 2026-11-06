@@ -32,7 +32,8 @@ const base = import.meta.env.BASE_URL;
 
         <!-- YouTube live embed — shows automatically when Coach Veeeee goes live -->
         <div id="yt-live-wrap" class="yt-live-wrap">
-          <p class="yt-live-label">🔴 <strong>LIVE</strong> — Coach Veeeee is on YouTube right now!</p>
+          <p class="yt-live-schedule">🎁 Coach V is going LIVE on YouTube for <strong>Giving Tuesday, December 1st</strong> at <strong>9:15am · 11am · 2pm · 6:15pm</strong></p>
+          <p class="yt-live-label">🔴 <strong>LIVE</strong> — Coach V is on YouTube right now!</p>
           <div class="yt-live-frame">
             <iframe
               src="https://www.youtube.com/embed/live_stream?channel=UCDhf4KO5MYC-pJ7RSE7l1fA&autoplay=0"
@@ -283,6 +284,27 @@ const base = import.meta.env.BASE_URL;
     </div>
   </section>
 
+<script>
+  (function () {
+    // Dec 1 2026 live windows (PT — adjust if needed)
+    const sessions = [
+      { start: '2026-12-01T09:15:00', end: '2026-12-01T09:45:00' },
+      { start: '2026-12-01T11:00:00', end: '2026-12-01T11:30:00' },
+      { start: '2026-12-01T14:00:00', end: '2026-12-01T14:30:00' },
+      { start: '2026-12-01T18:15:00', end: '2026-12-01T18:45:00' },
+    ];
+    const wrap = document.getElementById('yt-live-wrap');
+    if (!wrap) return;
+    function check() {
+      const now = new Date();
+      const live = sessions.some(s => now >= new Date(s.start) && now <= new Date(s.end));
+      wrap.classList.toggle('is-live', live);
+    }
+    check();
+    setInterval(check, 30000);
+  })();
+</script>
+
 </BaseLayout>
 
 <style>
@@ -310,13 +332,21 @@ const base = import.meta.env.BASE_URL;
   margin-inline: auto;
   text-align: center;
 }
+.yt-live-schedule {
+  font-size: var(--text-sm);
+  color: var(--color-text-light);
+  margin-bottom: var(--space-2);
+}
 .yt-live-label {
   font-size: var(--text-sm);
   color: #c00;
   font-weight: 700;
   margin-bottom: var(--space-3);
   letter-spacing: 0.02em;
+  display: none;
 }
+.is-live .yt-live-label { display: block; }
+.is-live .yt-live-schedule { display: none; }
 .yt-live-frame {
   position: relative;
   padding-bottom: 56.25%; /* 16:9 */
