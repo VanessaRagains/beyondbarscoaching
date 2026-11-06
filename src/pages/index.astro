@@ -43,9 +43,14 @@ const base = import.meta.env.BASE_URL;
               loading="lazy"
             ></iframe>
           </div>
-          <a href="https://www.youtube.com/@vanessaragains" target="_blank" rel="noopener" class="yt-live-link">
-            Watch on YouTube →
-          </a>
+          <div class="yt-live-actions">
+            <a href="https://givebutter.com/c/6k46yrs" target="_blank" rel="noopener" class="btn yt-donate-btn">
+              💛 Donate Now — Giving Tuesday
+            </a>
+            <a href="https://www.youtube.com/@vanessaragains" target="_blank" rel="noopener" class="yt-live-link">
+              Watch on YouTube →
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -363,9 +368,31 @@ const base = import.meta.env.BASE_URL;
   height: 100%;
   border: none;
 }
+.yt-live-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+.yt-donate-btn {
+  background: var(--color-gold);
+  color: var(--color-green-dark);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  padding: var(--space-4) var(--space-10);
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 18px rgba(231,173,0,0.35);
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  letter-spacing: 0.01em;
+}
+.yt-donate-btn:hover {
+  background: var(--color-gold-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(231,173,0,0.45);
+  color: var(--color-green-dark);
+}
 .yt-live-link {
-  display: inline-block;
-  margin-top: var(--space-3);
   font-size: var(--text-sm);
   color: var(--color-teal);
   text-decoration: underline;
@@ -381,7 +408,7 @@ const base = import.meta.env.BASE_URL;
   flex-wrap: wrap;
   border: 2px solid var(--color-gold);
   border-radius: var(--radius-xl);
-  padding: var(--space-7) var(--space-8);
+  padding: var(--space-10) var(--space-12);
   background: rgba(255,255,255,0.8);
 }
 .gt-eyebrow {
