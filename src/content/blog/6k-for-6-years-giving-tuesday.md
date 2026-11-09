@@ -32,15 +32,13 @@ A workbook is $22.99, so $6,000 is roughly 260 of them. Each is a twelve-week pr
 
 1. **Give at [beyondbarscoaching.org](https://beyondbarscoaching.org/giving-tuesday),** any time up to and on Giving Tuesday, December 1st. Every gift counts at every size.
 
-2. **Join me live on December 1st** at [beyondbarscoaching.org](https://beyondbarscoaching.org), in four short sessions (Pacific time): 8 am, noon, 4 pm, and 7 pm. Come for a few minutes. You don't have to give to be welcome.
+2. **Join me live on December 1st** at [beyondbarscoaching.org](https://beyondbarscoaching.org), in four short sessions (Pacific time): 9:15 am, 11 am, 2 pm, and 6:15 pm. Come for a few minutes. You don't have to give to be welcome.
 
 3. **Share this post** with someone who believes in not only second chances, but fair chances.
 
 ## Listen to the series
 
-- [Ep 1: 6K for 6 Years](#)
-- [Ep 2: Where Your Gift Goes](#)
-- [Ep 3: One Week to Go](#)
+- [Ep 1: 6K for 6 Years](#) *(more episodes coming throughout November)*
 
 ---
 
